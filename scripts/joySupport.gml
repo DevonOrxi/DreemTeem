@@ -1,3 +1,19 @@
+//Define joyslot depending on playerId
+switch (playerId) {
+    case 1:
+        joySlot = joyManager.playerJoy[0];
+        break;
+    case 2:
+        joySlot = joyManager.playerJoy[1];
+        break;
+    case 3:
+        joySlot = joyManager.playerJoy[2];
+        break;
+    case 4:
+        joySlot = joyManager.playerJoy[3];
+        break;
+}
+
 //Analog
 anaRight = (gamepad_axis_value(joySlot, gp_axislh) > 0.5);
 anaLeft = (gamepad_axis_value(joySlot, gp_axislh) < -0.5); 

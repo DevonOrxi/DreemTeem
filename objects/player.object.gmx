@@ -25,12 +25,63 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>joySlot = 0;
-playerJoy[0] = -1;
-playerJoy[1] = -1;
-playerJoy[2] = -1;
-playerJoy[3] = -1;
-j_test = 0;
+            <string>//CC
+characterControllerCreate();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Invincibility stop
+inv = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Respawn player
+warp_movement_entity(respawnX, respawnY);
+alive = true;
+inv = true;
+alarm[1] = invTime;
+
+//Stop all movement
+add_movement_direction_acceleration(0, 0);
+force = 0;
 </string>
           </argument>
         </arguments>
@@ -53,15 +104,11 @@ j_test = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var e = 0;
-for (var i = 0; i &lt; 8; i++;){
-     if gamepad_is_connected(i){
-            if playerJoy[e] = -1 {
-                playerJoy[e] = i;
-                e++;
-            }
-        }
-    }
+            <string>//Joystick
+joySupport();
+
+//CC
+characterControllerStep();
 </string>
           </argument>
         </arguments>
@@ -84,11 +131,21 @@ for (var i = 0; i &lt; 8; i++;){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//control_debug();
+            <string>draw_self();
 
-draw_text(room_width/2, room_height/2, "Player1 controller - " + string(playerJoy[0]));
-draw_text(room_width/2, room_height/2 + 20, "Player2 controller - " + string(playerJoy[1]));
-draw_text(room_width/2, room_height/2 + 40, "Player2 controller - " + string(j_test));
+///DEBUG
+
+//Punch debug
+draw_text(x, y, "Hit - " + string(hit));
+//draw_text(x, y+20, "Force - " + string(force));
+//draw_text(x, y-20, "PunchTime - " + string(punchTime));
+
+//Inv debug
+//draw_text(x, y, "Inv - " + string(inv));
+
+//control_debug();
+//draw_text(x, y, "Player - " + string(player));
+//draw_text(x, y+20, "Joyslot - " + string(joySlot));
 </string>
           </argument>
         </arguments>

@@ -18,18 +18,6 @@ var hspd = hsp[0]+hsp[1];
 var vspd = vsp[0]+vsp[1];
 
 
-// Move down a slope
-if (!place_meeting(x+hspd, y, collision_object) && abs(hspd) > 0 && place_meeting(x, y+1, collision_object)) {
-    while (!place_meeting(x+hspd, y-yslope, collision_object) && yslope >= -abs(hspd)) {
-        yslope--;
-    }
-    
-    // Make sure we actually need to move down
-    if (yslope != 0 && place_meeting(x+hspd, y-yslope+1, collision_object)) {
-        y -= yslope;
-    }
-}
-
 // Horizontal check
 if (place_meeting(x+hspd, y, collision_object)) {
     // Move up a slope

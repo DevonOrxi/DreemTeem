@@ -9,5 +9,5 @@
 var dir = argument[0]; // Direction value
 var acc = argument[1]; // Acceleration value
 
-hsp[1] += lengthdir_x(acc, dir);
-vsp[1] += lengthdir_y(acc, dir);
+hsp[0] = lengthdir_x(acc, dir);
+vsp[0] = lengthdir_y(acc, dir);

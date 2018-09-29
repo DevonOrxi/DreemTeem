@@ -25,15 +25,23 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>player = 2;
-joySlot = -1;
-angle = 0;
+            <string>//Set players
+global.playerAmount = 2; //Amount of players that are going to play
+playerSpawned = 0; //Amount of players already on screen
+global.playerId = 0; //Determines the player id
+alarm[0] = 30; //Start creating players
+
+spawnX[0] = (room_width/2) +125;
+spawnX[1] = (room_width/2) -125;
+spawnY[0] = room_height/2;
+spawnY[1] = room_height/2;
+spawnY[2] = room_height/2;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -50,8 +58,15 @@ angle = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>control_support();
-joySlot = joy_manager.playerJoy[1];
+            <string>///Spawn Players
+instance_create(spawnX[playerSpawned], spawnY[0], player);
+playerSpawned += 1;
+
+//Check if all players have spawned, if not, keep spawning
+if playerSpawned &lt; global.playerAmount {
+    alarm[0] = 30;
+}
+
 </string>
           </argument>
         </arguments>
@@ -74,11 +89,8 @@ joySlot = joy_manager.playerJoy[1];
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///DEBUG
-
-//control_debug();
- draw_text(x, y, "Player - " + string(player));
- draw_text(x, y+20, "Joyslot - " + string(joySlot));
+            <string>//DEBUG
+draw_text(x, y, "PlayerId - " + string(global.playerId));
 </string>
           </argument>
         </arguments>
