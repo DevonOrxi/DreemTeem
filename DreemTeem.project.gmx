@@ -5,9 +5,34 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprite>sprites\sprite0</sprite>
+    <sprite>sprites\sprite1</sprite>
+  </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\control_support.gml</script>
+    <script>scripts\control_debug.gml</script>
+    <scripts name="HB Movement">
+      <script>scripts\add_movement_direction_acceleration.gml</script>
+      <script>scripts\initialize_movement_entity.gml</script>
+      <script>scripts\move_movement_entity.gml</script>
+      <script>scripts\set_movement_direction_speed.gml</script>
+      <script>scripts\approach.gml</script>
+    </scripts>
+  </scripts>
+  <objects name="objects">
+    <object>objects\p1</object>
+    <object>objects\p2</object>
+    <object>objects\joy_manager</object>
+    <object>objects\solids</object>
+    <object>objects\stage</object>
+    <object>objects\obj_shake_all</object>
+  </objects>
+  <rooms name="rooms">
+    <room>rooms\punchTest</room>
+  </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>
