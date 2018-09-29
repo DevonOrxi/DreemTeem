@@ -1,24 +1,11 @@
 //Define joyslot depending on playerId
-switch (playerId) {
-    case 1:
-        joySlot = joyManager.playerJoy[0];
-        break;
-    case 2:
-        joySlot = joyManager.playerJoy[1];
-        break;
-    case 3:
-        joySlot = joyManager.playerJoy[2];
-        break;
-    case 4:
-        joySlot = joyManager.playerJoy[3];
-        break;
-}
+joySlot = joyManager.playerJoy[playerId - 1];
 
 //Analog
-anaRight = (gamepad_axis_value(joySlot, gp_axislh) > 0.5);
-anaLeft = (gamepad_axis_value(joySlot, gp_axislh) < -0.5); 
-anaUp = (gamepad_axis_value (joySlot, gp_axislv) < -0.5);
-anaDown = (gamepad_axis_value (joySlot, gp_axislv) > 0.5);
+anaRight = (gamepad_axis_value(joySlot, gp_axislh) > global.joy_stick_threshold);
+anaLeft = (gamepad_axis_value(joySlot, gp_axislh) < -global.joy_stick_threshold); 
+anaUp = (gamepad_axis_value (joySlot, gp_axislv) < -global.joy_stick_threshold);
+anaDown = (gamepad_axis_value (joySlot, gp_axislv) > global.joy_stick_threshold);
 
 //R1
 joyR1 = gamepad_button_check(joySlot,gp_shoulderr);
@@ -31,9 +18,15 @@ joyR2P = gamepad_button_check_pressed(joySlot,gp_shoulderrb);
 joyR2R = gamepad_button_check_released(joySlot,gp_shoulderrb);
 
 //Aim Angle - Chequea si el jugador está moviendo el stick derecho y guarda la dirección en angle
-pointdir = point_direction(0,0,gamepad_axis_value(joySlot,gp_axisrh),gamepad_axis_value(joySlot,gp_axisrv));
+pointdir = point_direction(
+    0,
+    0,
+    gamepad_axis_value(joySlot,gp_axisrh),
+    gamepad_axis_value(joySlot,gp_axisrv));
 
-if gamepad_axis_value(joySlot,gp_axisrh) > 0.5 or gamepad_axis_value(joySlot,gp_axisrh) < -0.5 or gamepad_axis_value(joySlot,gp_axisrv) > 0.5 or gamepad_axis_value(joySlot,gp_axisrv) < -0.5
-{
-    angle = pointdir;
+if  gamepad_axis_value(joySlot,gp_axisrh) > global.joy_stick_threshold or 
+    gamepad_axis_value(joySlot,gp_axisrh) < -global.joy_stick_threshold or
+    gamepad_axis_value(joySlot,gp_axisrv) > global.joy_stick_threshold or
+    gamepad_axis_value(joySlot,gp_axisrv) < -global.joy_stick_threshold {
+        angle = pointdir;
 }

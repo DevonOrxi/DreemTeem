@@ -30,6 +30,8 @@ playerJoy[0] = -1;
 playerJoy[1] = -1;
 playerJoy[2] = -1;
 playerJoy[3] = -1;
+
+global.joy_stick_threshold = 0.5;
 </string>
           </argument>
         </arguments>
