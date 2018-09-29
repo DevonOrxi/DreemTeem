@@ -9,6 +9,9 @@
     <sprite>sprites\char1</sprite>
     <sprite>sprites\char2</sprite>
     <sprite>sprites\sprite1</sprite>
+    <sprite>sprites\sBlock</sprite>
+    <sprite>sprites\sBlockOW</sprite>
+    <sprite>sprites\sPlayer</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -39,9 +42,13 @@
     <object>objects\stage</object>
     <object>objects\screenShaker</object>
     <object>objects\playerManager</object>
+    <object>objects\oBlock</object>
+    <object>objects\oBlockOW</object>
+    <object>objects\oPlayer</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\punchTest</room>
+    <room>rooms\rGame</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
