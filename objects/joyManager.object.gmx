@@ -102,6 +102,7 @@ while (p &lt; global.playerAmount) {
         else
             p++;
     }
+}
     
 if keyboard_check_pressed(ord('R'))
 {
