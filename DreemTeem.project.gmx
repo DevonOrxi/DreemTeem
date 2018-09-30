@@ -11,6 +11,15 @@
     <sprite>sprites\sprite1</sprite>
     <sprite>sprites\sBlock</sprite>
     <sprite>sprites\sBlockOW</sprite>
+    <sprites name="Player">
+      <sprite>sprites\idle</sprite>
+      <sprite>sprites\preCharge</sprite>
+      <sprite>sprites\charge</sprite>
+      <sprite>sprites\punch</sprite>
+      <sprite>sprites\fall</sprite>
+      <sprite>sprites\land</sprite>
+      <sprite>sprites\hurt</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -25,19 +34,26 @@
           <script>scripts\conditionForHurting.gml</script>
           <script>scripts\conditionForFalling.gml</script>
           <script>scripts\conditionForLanding.gml</script>
-          <script>scripts\conditionForLandToIdle.gml</script>
+          <script>scripts\conditionForHurtingToFalling.gml</script>
+          <script>scripts\conditionForIdleCharge.gml</script>
         </scripts>
         <script>scripts\conditionCheck.gml</script>
       </scripts>
       <scripts name="StateBehaviour">
         <scripts name="Enters">
+          <script>scripts\enterIdle.gml</script>
+          <script>scripts\enterCharging.gml</script>
           <script>scripts\enterPunching.gml</script>
+          <script>scripts\enterHurting.gml</script>
+          <script>scripts\enterFalling.gml</script>
+          <script>scripts\enterLanding.gml</script>
         </scripts>
         <scripts name="Updates">
           <script>scripts\updateCharging.gml</script>
           <script>scripts\updatePunching.gml</script>
           <script>scripts\updateFalling.gml</script>
           <script>scripts\updateIdle.gml</script>
+          <script>scripts\updateLanding.gml</script>
         </scripts>
         <script>scripts\fsmEnter.gml</script>
         <script>scripts\fsmExit.gml</script>

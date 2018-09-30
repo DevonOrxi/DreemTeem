@@ -14,6 +14,9 @@ switch argument0 {
     case playerState.HURTING :
         return "HURTING";
         break;
+    case playerState.HURTING_TO_FALLING :
+        return "HURTING_TO_FALLING";
+        break;
     case playerState.FALLING :
         return "FALLING";
         break;

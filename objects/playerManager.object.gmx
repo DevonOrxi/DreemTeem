@@ -32,6 +32,7 @@ enum playerState {
     PUNCHING,
     PUNCH_TO_IDLE,
     HURTING,
+    HURTING_TO_FALLING,
     FALLING,
     LANDING,
     LAND_TO_IDLE

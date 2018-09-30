@@ -12,9 +12,13 @@ joySlot = -1;
 
 //Punching
 angle = 0; //Angle of attack
+angleBase = 0;
 force = 0; //Punch charge strength
-forceLimit = 24; //Max amount of force
-forceGrow = 2; //How fast force increases
+punchLevel = 0;
+punchLevelForce = 0;
+punchCancel = false;
+forceLimit = 35; //Max amount of force
+forceGrow = 0.2; //How fast force increases
 punchTime = 0; //Time in punching state
 punchLow = 1; //Amount by frame te reduce time punching
 
@@ -38,6 +42,7 @@ alive = true;
 inv = false;
 charging = false;
 punching = false;
+falling = false;
 
 //Sprite (this is meant for testing only)
 if playerId = 1 {
