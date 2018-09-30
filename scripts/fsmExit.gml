@@ -1,8 +1,8 @@
-startedState = false;
 var newState = conditionCheck();
 debug_event(stateEnumToString(newState));
 
 if state != newState {
+    startedState = false;
     switch state {
     case playerState.IDLE :
         break;

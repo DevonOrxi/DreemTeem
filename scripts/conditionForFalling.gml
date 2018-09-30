@@ -1,1 +1,1 @@
-return (vsp != 0);
+return (vsp[0] != 0 && !punching);
