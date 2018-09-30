@@ -52,4 +52,15 @@ if playerId = 4 {
 
 //Sprite
 image_index = 0;
-sprite_index = punch;
+
+switch punchLevel{
+    case 1:
+    sprite_index = punch;
+    break;
+    case 2:
+    sprite_index = punch2;
+    break;
+    case 3:
+    sprite_index = punch3;
+    break;
+}

@@ -20,9 +20,27 @@
       <sprite>sprites\land</sprite>
       <sprite>sprites\hurt</sprite>
       <sprite>sprites\hitBox</sprite>
+      <sprite>sprites\punch2</sprite>
+      <sprite>sprites\punch3</sprite>
+    </sprites>
+    <sprites name="Level">
+      <sprite>sprites\floorMid</sprite>
+      <sprite>sprites\floorLeft</sprite>
+      <sprite>sprites\floorRight</sprite>
+      <sprite>sprites\subLeft</sprite>
+      <sprite>sprites\subMid</sprite>
+      <sprite>sprites\subRight</sprite>
+      <sprite>sprites\botLeft</sprite>
+      <sprite>sprites\botMid</sprite>
+      <sprite>sprites\botRight</sprite>
+    </sprites>
+    <sprites name="Particles">
+      <sprite>sprites\effectDeath</sprite>
     </sprites>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\bg</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="FSM">
@@ -43,6 +61,7 @@
           <script>scripts\conditionForDeath.gml</script>
           <script>scripts\conditionForStun.gml</script>
           <script>scripts\conditionForDeathToFalling.gml</script>
+          <script>scripts\script48.gml</script>
         </scripts>
         <script>scripts\conditionCheck.gml</script>
       </scripts>
@@ -113,6 +132,20 @@
     <objects name="Parents">
       <object>objects\solids</object>
       <object>objects\solids_ow</object>
+    </objects>
+    <objects name="Level">
+      <object>objects\FM</object>
+      <object>objects\FL</object>
+      <object>objects\FR</object>
+      <object>objects\SL</object>
+      <object>objects\SM</object>
+      <object>objects\SR</object>
+      <object>objects\BL</object>
+      <object>objects\BM</object>
+      <object>objects\BR</object>
+    </objects>
+    <objects name="Particles">
+      <object>objects\deathEffect</object>
     </objects>
   </objects>
   <rooms name="rooms">

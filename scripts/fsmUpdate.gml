@@ -1,7 +1,7 @@
 startedState = true;
 
 //Enable Movement
-if connect = false && hurting = false {
+if connect = false && hurting = false{
     move_movement_entity(); //Refreshes position every step
 }
 
@@ -36,6 +36,25 @@ switch state {
 //Death and respawn
 if y > (room_height + sprite_height) && alive = true {
     alive = false;
+    instance_create(x, room_height, deathEffect);
+    alarm[8] = respawnTime;
+}
+
+if y < -50 && alive = true {
+    alive = false;
+    instance_create(x, 0, deathEffect);
+    alarm[8] = respawnTime;
+}
+
+if x > (room_width + sprite_width/2) && alive = true {
+    alive = false;
+    instance_create(room_width, y, deathEffect);
+    alarm[8] = respawnTime;
+}
+
+if x < -50 && alive = true {
+    alive = false;
+    instance_create(0, y, deathEffect);
     alarm[8] = respawnTime;
 }
 
@@ -153,7 +172,7 @@ if connect = false && hurting = false{
     image_speed = 0.1;
 }
 
-if sprite_index != punch
+if sprite_index != punch && sprite_index != punch2 && sprite_index != punch3
 {
     if hurting = false
     {
@@ -166,7 +185,7 @@ if sprite_index != punch
     }
 }
 
-if sprite_index = punch
+if sprite_index = punch or sprite_index = punch2 or sprite_index = punch3
 {
     if connect = false
     {
@@ -184,4 +203,5 @@ if sprite_index = punch
         image_xscale = 1;
     }
     }
+    //image_speed = 0.2;
 }

@@ -308,7 +308,7 @@ fsmUpdate();
             <string>draw_self();
 
 ///DEBUG
-
+/*
 //Punch debug
 if playerId = 2
 {
