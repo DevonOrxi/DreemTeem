@@ -180,8 +180,14 @@ fsmUpdate();
 ///DEBUG
 
 //Punch debug
-draw_text(x, y, "Hit - " + string(hit));
-draw_text(x, y - 40, "ESTADO: " + stateEnumToString(state));
+if playerId = 1
+{
+draw_text(50, 40, "ESTADO: " + stateEnumToString(state));
+draw_text(50, 60, "Punch Level: " + string(punchLevel));
+draw_text(50, 80, "Punch Force: " + string(force));
+draw_text(50, 100, "Image Angle: " + string(image_angle));
+draw_text(50, 120, "Image Y: " + string(image_yscale));
+draw_text(50, 140, "Image X: " + string(image_xscale));}
 //draw_text(x, y+20, "Force - " + string(force));
 //draw_text(x, y-20, "PunchTime - " + string(punchTime));
 
