@@ -24,7 +24,7 @@ if vibeL > 0 && vibeL > 0
 gamepad_set_vibration(joySlot, vibeL, vibeR);
 
 //Sprite
-if image_index > 3
+if image_index > 2
 {
     image_speed = 0;
 }
