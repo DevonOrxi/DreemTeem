@@ -21,9 +21,14 @@ forceLimit = 35; //Max amount of force
 forceGrow = 0.2; //How fast force increases
 punchTime = 0; //Time in punching state
 punchLow = 1; //Amount by frame te reduce time punching
+freezeTime = 90;
+deathAngle = 0;
+deathForce = 100;
 
-//Damaging
-hit = false;
+//Damage
+hurting = false;
+hit = 0;
+connect = false;
 
 //Death, respawn & invinsibility timers and coordenates
 respawnX = room_width/2;
@@ -49,6 +54,9 @@ inv = false;
 charging = false;
 punching = false;
 falling = false;
+death = false;
+knockback = false;
+stun = false;
 
 //Sprite (this is meant for testing only)
 if playerId = 1 {

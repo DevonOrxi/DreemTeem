@@ -14,6 +14,15 @@ switch argument0 {
     case playerState.HURTING :
         return "HURTING";
         break;
+    case playerState.KNOCKBACK :
+        return "KNOCKBACK";
+        break;
+    case playerState.STUN :
+        return "STUN";
+        break;
+    case playerState.DEATH :
+        return "DEATH";
+        break;
     case playerState.HURTING_TO_FALLING :
         return "HURTING_TO_FALLING";
         break;
@@ -22,6 +31,9 @@ switch argument0 {
         break;
     case playerState.LANDING :
         return "LANDING";
+        break;
+    case playerState.CONNECT :
+        return "CONNECT";
         break;
     case playerState.LAND_TO_IDLE :
         return "LAND_TO_IDLE";
