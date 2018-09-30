@@ -18,6 +18,7 @@
     <scripts name="FSM">
       <scripts name="Conditions">
         <scripts name="ConditionFor">
+          <script>scripts\conditionForIdle.gml</script>
           <script>scripts\conditionForCharging.gml</script>
           <script>scripts\conditionForPunching.gml</script>
           <script>scripts\conditionForPunchToIdle.gml</script>
@@ -29,8 +30,16 @@
         <script>scripts\conditionCheck.gml</script>
       </scripts>
       <scripts name="StateBehaviour">
+        <scripts name="Enters">
+          <script>scripts\enterPunching.gml</script>
+        </scripts>
+        <scripts name="Updates">
+          <script>scripts\updateCharging.gml</script>
+          <script>scripts\updatePunching.gml</script>
+        </scripts>
         <script>scripts\fsmEnter.gml</script>
         <script>scripts\fsmExit.gml</script>
+        <script>scripts\fsmInit.gml</script>
         <script>scripts\fsmUpdate.gml</script>
       </scripts>
     </scripts>

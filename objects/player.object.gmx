@@ -129,12 +129,10 @@ characterControllerStep();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>fsmUpdate();
+            <string>//Joystick
+joySupport();
 
-if state != conditionCheck() {
-    state = conditionCheck;
-    startedState = false;
-}
+fsmUpdate();
 </string>
           </argument>
         </arguments>
