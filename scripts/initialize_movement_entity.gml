@@ -17,7 +17,8 @@ grav = argument[0]; // Gravity amount (positive is down).
 fric = argument[1]; // Friction amount (Only applies on ground for Platform Games).
 air_res = argument[2]; // Friction for all movement( When gravity is not 0 it only applies horizontally)
 bounce = argument[3]; // Bounce amount. 0 is no bounce, .5 is half velocity lost, 1 is no velocity lost.
-collision_object = argument[4] // The object that will be used for collisions.
+collision_object = argument[4]; // The object that will be used for collisions.
+oneway_object = argument[5];
 
 horizontal_move_input = false;
 vertical_move_input = false;
