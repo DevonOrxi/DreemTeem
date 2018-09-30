@@ -28,6 +28,12 @@ switch state {
     }
     
 
+//Death and respawn
+if y > (room_height + sprite_height) && alive = true {
+    alive = false;
+    alarm[8] = respawnTime;
+}
+
 //Sprite
 image_speed = 0.1;
 
@@ -54,5 +60,6 @@ if sprite_index = punch
     
     if angle < 270 && angle > 90 {
         image_yscale = -1;
+        image_xscale = 1;
     }
 }
