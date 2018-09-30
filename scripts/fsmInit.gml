@@ -1,5 +1,8 @@
 //FSM init
-state = playerState.IDLE;
+if place_meeting(x, y + 1, solids)
+    state = playerState.IDLE;
+else
+    state = playerState.FALLING;
 startedState = false;
 
 //Joystick and playerId
