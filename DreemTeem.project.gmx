@@ -4,7 +4,24 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\sound0_Critical hit</sound>
+    <sound>sound\sound1_Death explosion</sound>
+    <sound>sound\sound2_estrellita pre critical</sound>
+    <sound>sound\sound3_Hit1</sound>
+    <sound>sound\sound4_Hit2</sound>
+    <sound>sound\sound5_landing</sound>
+    <sound>sound\sound6_Menu select negativo</sound>
+    <sound>sound\sound7_Menu select positivo</sound>
+    <sound>sound\sound8_Menu select</sound>
+    <sound>sound\sound9_vine1</sound>
+    <sound>sound\sound10_vine2</sound>
+    <sound>sound\sound11_vine3</sound>
+    <sound>sound\sound12_Whoosh</sound>
+    <sound>sound\sound13_Charging</sound>
+    <sound>sound\sound14_Fully_charged</sound>
+    <sound>sound\sound15_music</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\char1</sprite>
     <sprite>sprites\char2</sprite>
@@ -54,6 +71,9 @@
           <script>scripts\updateFalling.gml</script>
           <script>scripts\updateIdle.gml</script>
           <script>scripts\updateLanding.gml</script>
+        </scripts>
+        <scripts name="Exits">
+          <script>scripts\exitPunching.gml</script>
         </scripts>
         <script>scripts\fsmEnter.gml</script>
         <script>scripts\fsmExit.gml</script>

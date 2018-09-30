@@ -29,3 +29,6 @@ punching = true;
 //Sprite
 image_index = 0;
 sprite_index = punch;
+
+audio_stop_sound(sound13_Charging);
+audio_play_sound(sound12_Whoosh, 80, false);
