@@ -54,15 +54,55 @@ global.joy_stick_threshold = 0.5;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var e = 0;
+            <string>/*var e = 0;
 for (var i = 0; i &lt; 8; i++;){
-     if gamepad_is_connected(i){
-            if playerJoy[e] = -1 {
-                playerJoy[e] = i;
-                e++;
-            }
+    if gamepad_is_connected(i){
+        if playerJoy[e] = -1 {
+            playerJoy[e] = i;
+            e++;
         }
     }
+}*/
+
+
+// For each player...
+var p = 0;
+while (p &lt; global.playerAmount) {
+    if playerJoy[p] == -1 {
+        var found = false;
+        var joy_players = 0;
+        var joy_index = 0;
+        var joy_counter = 0;
+        
+        while (!found &amp;&amp; joy_index &lt; 8) {
+            var assigned = false;
+            
+            if (gamepad_is_connected(joy_index)) {
+                
+                while (!assigned &amp;&amp; joy_players &lt; global.playerAmount) {
+                    if (joy_players != p &amp;&amp; joy_index == playerJoy[joy_players])
+                        assigned = true;
+                    joy_players++;
+                }
+                
+                if !assigned {
+                    playerJoy[p] = joy_index;
+                    found = true;
+                }
+            }
+            
+            
+            joy_index++;
+        }
+        
+        p++;
+    } else {
+        if !gamepad_is_connected(playerJoy[p])
+            playerJoy[p] = -1;
+        else
+            p++;
+    }
+}
 </string>
           </argument>
         </arguments>
