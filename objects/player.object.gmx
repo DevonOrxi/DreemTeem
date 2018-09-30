@@ -81,6 +81,79 @@ alarm[9] = invTime;
 //Stop all movement
 add_movement_direction_acceleration(0, 0);
 force = 0;
+
+//Reset everything just in case lol
+//Punching
+angle = 0; //Angle of attack
+angleBase = 0;
+force = 0; //Punch charge strength
+punchLevel = 0;
+punchLevelForce = 0;
+punchCancel = false;
+forceLimit = 35; //Max amount of force
+forceGrow = 0.2; //How fast force increases
+punchTime = 0; //Time in punching state
+punchLow = 1; //Amount by frame te reduce time punching
+freezeTime = 90;
+deathAngle = 0;
+deathForce = 100;
+
+//Damage
+hurting = false;
+hit = 0;
+connect = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Freeze
+add_movement_direction_acceleration(0, 0);
+force = 0;
+connect = false;
+punching = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="6">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//Get punched
+hurting = false;
+
 </string>
           </argument>
         </arguments>
@@ -208,6 +281,8 @@ force = 0;
 joySupport();
 
 fsmUpdate();
+
+
 </string>
           </argument>
         </arguments>
@@ -235,14 +310,27 @@ fsmUpdate();
 ///DEBUG
 
 //Punch debug
-if playerId = 1
+if playerId = 2
 {
 draw_text(50, 40, "ESTADO: " + stateEnumToString(state));
 draw_text(50, 60, "Punch Level: " + string(punchLevel));
 draw_text(50, 80, "Punch Force: " + string(force));
 draw_text(50, 100, "Image Angle: " + string(image_angle));
 draw_text(50, 120, "Image Y: " + string(image_yscale));
-draw_text(50, 140, "Image X: " + string(image_xscale));}
+draw_text(50, 140, "Image X: " + string(image_xscale));
+draw_text(50, 160, "Hurting: " + string(hurting));
+draw_text(50, 180, "Death: " + string(death));
+}
+
+if instance_exists(hitBox1)
+{
+    draw_text(50, 200, "Hitbox Level: " + string(hitBox1.level));
+}
+
+/*if playerId = 2
+{
+draw_text(550, 40, "Hurting: " + string(hurting));
+}
 //draw_text(x, y+20, "Force - " + string(force));
 //draw_text(x, y-20, "PunchTime - " + string(punchTime));
 

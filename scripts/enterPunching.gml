@@ -29,16 +29,20 @@ punching = true;
 //Create HitBox villero
 switch playerId {
     case 1:
-    instance_create(x, y, hitBox1);
+    var inst = instance_create(x, y, hitBox1);
+    inst.level = punchLevel;
     break;
     case 2:
-    instance_create(x, y, hitBox2);
+    var inst = instance_create(x, y, hitBox2);
+    inst.level = punchLevel;
     break;
     case 3:
-    instance_create(x, y, hitBox3);
+    var inst = instance_create(x, y, hitBox3);
+    inst.level = punchLevel;
     break;
     case 4:
-    instance_create(x, y, hitBox4);
+    var inst = instance_create(x, y, hitBox4);
+    inst.level = punchLevel;
     break;
 }
 

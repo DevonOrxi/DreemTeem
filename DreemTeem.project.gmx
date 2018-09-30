@@ -54,6 +54,12 @@
           <script>scripts\conditionForLanding.gml</script>
           <script>scripts\conditionForHurtingToFalling.gml</script>
           <script>scripts\conditionForIdleCharge.gml</script>
+          <script>scripts\conditionForConnect.gml</script>
+          <script>scripts\conditionForDisconnect.gml</script>
+          <script>scripts\conditionForKnockback.gml</script>
+          <script>scripts\conditionForDeath.gml</script>
+          <script>scripts\conditionForStun.gml</script>
+          <script>scripts\conditionForDeathToFalling.gml</script>
         </scripts>
         <script>scripts\conditionCheck.gml</script>
       </scripts>
@@ -65,6 +71,10 @@
           <script>scripts\enterHurting.gml</script>
           <script>scripts\enterFalling.gml</script>
           <script>scripts\enterLanding.gml</script>
+          <script>scripts\enterConnect.gml</script>
+          <script>scripts\enterKnockback.gml</script>
+          <script>scripts\enterStun.gml</script>
+          <script>scripts\enterDeath.gml</script>
         </scripts>
         <scripts name="Updates">
           <script>scripts\updateCharging.gml</script>
@@ -72,6 +82,8 @@
           <script>scripts\updateFalling.gml</script>
           <script>scripts\updateIdle.gml</script>
           <script>scripts\updateLanding.gml</script>
+          <script>scripts\updateConnect.gml</script>
+          <script>scripts\updateHurting.gml</script>
         </scripts>
         <scripts name="Exits">
           <script>scripts\exitPunching.gml</script>
