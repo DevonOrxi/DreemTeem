@@ -26,6 +26,26 @@ force = 0;
 charging = false;
 punching = true;
 
+//Create HitBox villero
+switch playerId {
+    case 1:
+    instance_create(x, y, hitBox1);
+    break;
+    case 2:
+    instance_create(x, y, hitBox2);
+    break;
+    case 3:
+    instance_create(x, y, hitBox3);
+    break;
+    case 4:
+    instance_create(x, y, hitBox4);
+    break;
+}
+
+if playerId = 4 {
+    instance_create(x, y, hitBox4);
+}
+
 //Sprite
 image_index = 0;
 sprite_index = punch;

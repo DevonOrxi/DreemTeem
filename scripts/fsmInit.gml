@@ -28,6 +28,8 @@ hit = false;
 //Death, respawn & invinsibility timers and coordenates
 respawnX = room_width/2;
 respawnY = room_height/2;
+respawnTime = 120;
+invTime = 120;
 
 //Physics & movement
 initialize_movement_entity(
@@ -37,6 +39,10 @@ initialize_movement_entity(
     0,
     solids);
 
+//Gamefeel
+vibeL = 0;
+vibeR = 0;    
+    
 //States (Temporary state machine)
 alive = true;
 inv = false;

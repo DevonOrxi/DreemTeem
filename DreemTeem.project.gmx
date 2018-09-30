@@ -19,6 +19,7 @@
       <sprite>sprites\fall</sprite>
       <sprite>sprites\land</sprite>
       <sprite>sprites\hurt</sprite>
+      <sprite>sprites\hitBox</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
@@ -85,6 +86,12 @@
       <object>objects\oBlockOW</object>
       <object>objects\player</object>
       <object>objects\stage</object>
+      <objects name="PunchHitBox">
+        <object>objects\hitBox1</object>
+        <object>objects\hitBox2</object>
+        <object>objects\hitBox3</object>
+        <object>objects\hitBox4</object>
+      </objects>
     </objects>
     <objects name="Managers">
       <object>objects\joyManager</object>
