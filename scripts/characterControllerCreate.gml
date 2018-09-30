@@ -1,3 +1,7 @@
+//FSM init
+state = playerState.IDLE;
+startedState = false;
+
 //Joystick and playerId
 global.playerId += 1;
 playerId = global.playerId;
@@ -15,13 +19,16 @@ punchLow = 1; //Amount by frame te reduce time punching
 hit = false;
 
 //Death, respawn & invinsibility timers and coordenates
-respawnTime = 30; //Time from death until respawn
 respawnX = room_width/2;
 respawnY = room_height/2;
-invTime = 60; //Time being invinsible
 
 //Physics & movement
-initialize_movement_entity(.5, .5, 0, 0, solids);
+initialize_movement_entity(
+    global.playerGravity,
+    global.playerFriction,
+    0,
+    0,
+    solids);
 
 //States (Temporary state machine)
 alive = true;

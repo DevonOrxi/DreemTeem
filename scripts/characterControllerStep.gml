@@ -38,6 +38,6 @@ if playerHit != noone {
 //Death and respawn
 if y > (room_height + sprite_height) && alive = true {
     alive = false;
-    alarm[0] = respawnTime;
+    alarm[0] = global.respawnTime;
 }
 
