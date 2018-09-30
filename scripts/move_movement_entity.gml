@@ -47,11 +47,27 @@ if (!place_meeting(x+hspd, y, collision_object)) {
 }
 
 // Vertical collision check
+var slam = false;
 if (place_meeting(x, y+vspd, collision_object)) {
-    while (!place_meeting(x, y+sign(vspd), collision_object)) {
+    while (!place_meeting(x, y+sign(vspd), collision_object))
         y+=sign(vspd);
+    slam = true;
+} else {
+    var moved = false;
+    with (oneway_object) {
+        if (!moved &&
+            vspd >= 0 &&
+            y >= round(other.y + other.sprite_height / 2) &&
+            place_meeting(x, y - vspd, other)) {
+                while (!place_meeting(x, y - sign(vspd), other))
+                    other.y += sign(vspd);
+                moved = true;
+                slam = true;
+            }
     }
-    
+}
+
+if slam {
     // Update the vertical speeds
     vspd = 0;
     vsp[0] = 0;
@@ -60,6 +76,7 @@ if (place_meeting(x, y+vspd, collision_object)) {
     // Stop bounce at low values
     if (abs(vsp[1]) < 1) vsp[1] = 0;
 }
+
 y += vspd;
 
 
@@ -69,7 +86,7 @@ if (!place_meeting(x, y+1, collision_object)) {
 }
 
 // Apply friction
-if (place_meeting(x, y+1, collision_object)) {
+if (place_meeting(x, y+1, collision_object) || place_meeting(x, y+1, oneway_object)) {
     if (horizontal_move_input == false) {
         hsp[0] = approach(hsp[0], 0, fric);
     }

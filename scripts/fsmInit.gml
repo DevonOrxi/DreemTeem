@@ -35,7 +35,8 @@ initialize_movement_entity(
     global.playerFriction,
     0,
     0,
-    solids);
+    solids,
+    solids_ow);
 
 //States (Temporary state machine)
 alive = true;
