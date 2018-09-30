@@ -1,0 +1,1 @@
+return (vsp != 0);

@@ -11,11 +11,40 @@
     <sprite>sprites\sprite1</sprite>
     <sprite>sprites\sBlock</sprite>
     <sprite>sprites\sBlockOW</sprite>
-    <sprite>sprites\sPlayer</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
+    <scripts name="FSM">
+      <scripts name="Conditions">
+        <scripts name="ConditionFor">
+          <script>scripts\conditionForIdle.gml</script>
+          <script>scripts\conditionForCharging.gml</script>
+          <script>scripts\conditionForPunching.gml</script>
+          <script>scripts\conditionForPunchToIdle.gml</script>
+          <script>scripts\conditionForHurting.gml</script>
+          <script>scripts\conditionForFalling.gml</script>
+          <script>scripts\conditionForLanding.gml</script>
+          <script>scripts\conditionForLandToIdle.gml</script>
+        </scripts>
+        <script>scripts\conditionCheck.gml</script>
+      </scripts>
+      <scripts name="StateBehaviour">
+        <scripts name="Enters">
+          <script>scripts\enterPunching.gml</script>
+        </scripts>
+        <scripts name="Updates">
+          <script>scripts\updateCharging.gml</script>
+          <script>scripts\updatePunching.gml</script>
+          <script>scripts\updateFalling.gml</script>
+          <script>scripts\updateIdle.gml</script>
+        </scripts>
+        <script>scripts\fsmEnter.gml</script>
+        <script>scripts\fsmExit.gml</script>
+        <script>scripts\fsmInit.gml</script>
+        <script>scripts\fsmUpdate.gml</script>
+      </scripts>
+    </scripts>
     <scripts name="Movement">
       <script>scripts\add_movement_direction_acceleration.gml</script>
       <script>scripts\initialize_movement_entity.gml</script>
@@ -30,25 +59,29 @@
       <script>scripts\joySupport.gml</script>
       <script>scripts\joyDebug.gml</script>
     </scripts>
-    <scripts name="CC">
-      <script>scripts\characterControllerStep.gml</script>
-      <script>scripts\characterControllerCreate.gml</script>
+    <scripts name="Misc">
+      <script>scripts\stateEnumToString.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
-    <object>objects\player</object>
-    <object>objects\joyManager</object>
-    <object>objects\solids</object>
-    <object>objects\stage</object>
-    <object>objects\screenShaker</object>
-    <object>objects\playerManager</object>
-    <object>objects\oBlock</object>
-    <object>objects\oBlockOW</object>
-    <object>objects\oPlayer</object>
+    <objects name="Entities">
+      <object>objects\oBlock</object>
+      <object>objects\oBlockOW</object>
+      <object>objects\player</object>
+      <object>objects\stage</object>
+    </objects>
+    <objects name="Managers">
+      <object>objects\joyManager</object>
+      <object>objects\playerManager</object>
+      <object>objects\screenShaker</object>
+    </objects>
+    <objects name="Parents">
+      <object>objects\solids</object>
+      <object>objects\solids_ow</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\punchTest</room>
-    <room>rooms\rGame</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
