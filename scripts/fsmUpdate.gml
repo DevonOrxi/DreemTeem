@@ -168,7 +168,7 @@ if playerId = 4
 }
 
 //Sprite
-if connect = false && hurting = false{
+if connect = false && hurting = false && charging = false{
     image_speed = 0.1;
 }
 
