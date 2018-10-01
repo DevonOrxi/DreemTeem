@@ -15,6 +15,8 @@
       <sprite>sprites\idle</sprite>
       <sprite>sprites\preCharge</sprite>
       <sprite>sprites\charge</sprite>
+      <sprite>sprites\charge2</sprite>
+      <sprite>sprites\charge3</sprite>
       <sprite>sprites\punch</sprite>
       <sprite>sprites\fall</sprite>
       <sprite>sprites\land</sprite>
@@ -47,8 +49,8 @@
       <scripts name="Conditions">
         <scripts name="ConditionFor">
           <script>scripts\conditionForIdle.gml</script>
-          <script>scripts\conditionForCharging.gml</script>
           <script>scripts\conditionForPunching.gml</script>
+          <script>scripts\conditionForCharging.gml</script>
           <script>scripts\conditionForPunchToIdle.gml</script>
           <script>scripts\conditionForHurting.gml</script>
           <script>scripts\conditionForFalling.gml</script>

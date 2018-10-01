@@ -6,18 +6,37 @@ if force < forceLimit {
 //Vibrate
 if (force >= 5 && force < 15)
 {
+    image_speed = 0.2;
     vibeL = 0.2;
     vibeR = 0.2;
 }
 
+if force = 15
+{
+    image_index = 0;
+}
+
 if (force >= 15 && force < 25)
 {
+    sprite_index = charge2;
+    image_speed = 0.2;
+    if image_index > 4
+    {
+        image_speed = 0;
+    }
     vibeL = 0.5;
     vibeR = 0.5;
 }
 
+if force = 25
+{
+    image_index = 0;
+}
+
 if (force >= 25)
 {
+    image_speed = 0.2;
+    sprite_index = charge3;
     vibeL = 1;
     vibeR = 1;
 }
