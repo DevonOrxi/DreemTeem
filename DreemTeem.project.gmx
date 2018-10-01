@@ -134,6 +134,9 @@
       <script>scripts\isGrounded.gml</script>
     </scripts>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\font0</font>
+  </fonts>
   <objects name="objects">
     <objects name="Entities">
       <object>objects\oBlock</object>

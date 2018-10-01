@@ -5,4 +5,4 @@ image_yscale = 1;
 sprite_index = charge;
 charging = true;
 full_charge = false;
-audio_play_sound(sound13_Charging, 80, false);
+//audio_play_sound(sound13_Charging, 80, false);

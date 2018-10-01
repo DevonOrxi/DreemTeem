@@ -30,28 +30,30 @@
 //Muerte abajo
 if y &gt; room_height &amp;&amp; x &lt; room_width
 {
-    image_angle = 0;
+    angle = 0;
 }
 
 //Muerte arriba
-if y = 0 &amp;&amp; x &lt; room_width
+if y = 0 &amp;&amp; x &lt; room_width 
 {
-    image_angle = 180;
+    angle = 180;
 }
 
 //Muerte derecha
-if x &gt;= room_width &amp;&amp; y &lt; 0
+if x = 0
 {
-    image_angle = 270;
+    angle = 270;
 }
 
 //Muerte izquierda
-if x &lt;= 0 &amp;&amp; y &gt; room_height
+if x = room_width
 {
-    image_angle = 90;
+    angle = 90;
 }
 
 image_angle = angle;
+
+audio_play_sound(sound1_Death_explosion, 80, false);
 </string>
           </argument>
         </arguments>

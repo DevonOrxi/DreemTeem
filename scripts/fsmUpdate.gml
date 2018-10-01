@@ -1,7 +1,7 @@
 startedState = true;
 
 //Enable Movement
-if connect = false && hurting = false{
+if connect = false && hurting = false && y > -50{
     move_movement_entity(); //Refreshes position every step
 }
 
