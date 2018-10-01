@@ -5,15 +5,15 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound">
-    <sound>sound\sound0_Critical hit</sound>
-    <sound>sound\sound1_Death explosion</sound>
-    <sound>sound\sound2_estrellita pre critical</sound>
+    <sound>sound\sound0_Critical_hit</sound>
+    <sound>sound\sound1_Death_explosion</sound>
+    <sound>sound\sound2_estrellita_pre_critical</sound>
     <sound>sound\sound3_Hit1</sound>
     <sound>sound\sound4_Hit2</sound>
     <sound>sound\sound5_landing</sound>
-    <sound>sound\sound6_Menu select negativo</sound>
-    <sound>sound\sound7_Menu select positivo</sound>
-    <sound>sound\sound8_Menu select</sound>
+    <sound>sound\sound6_Menu_select_negativo</sound>
+    <sound>sound\sound7_Menu_select_positivo</sound>
+    <sound>sound\sound8_Menu_select</sound>
     <sound>sound\sound9_vine1</sound>
     <sound>sound\sound10_vine2</sound>
     <sound>sound\sound11_vine3</sound>
