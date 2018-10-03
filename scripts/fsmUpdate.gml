@@ -1,7 +1,7 @@
 startedState = true;
 
 //Enable Movement
-if connect = false && hurting = false && y > -50{
+if connect = false && freeze = false && y > -50{
     move_movement_entity(); //Refreshes position every step
 }
 
@@ -43,8 +43,11 @@ if instance_exists(hitBox1) {
             gotHit = true;
             inst.playerHit = playerId;
             hitAngle = inst.angle;
-            hitX = inst.image_xscale;
+            hitX = -inst.image_xscale;
             hitY = inst.image_yscale;
+            hitPosX = inst.x;
+            hitPosY = inst.y;
+            freeze = true;
         }
     }
 }

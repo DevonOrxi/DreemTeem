@@ -160,7 +160,7 @@ punchTime = 0;
             <string>///Get punched
 hurting = false;
 critical = true;
-
+freeze = false;
 </string>
           </argument>
         </arguments>
@@ -337,13 +337,15 @@ draw_text(550, 100, "Sprite: " + sprite_get_name(sprite_index));
 draw_text(550, 120, "Got hit?: " + string(gotHit));
 draw_text(550, 140, "Connect: " + string(connect));
 draw_text(550, 160, "Death: " + string(stopCritDeath));
+draw_text(50, 180, "hitY: " + string(hitY));
+draw_text(50, 200, "hitX: " + string(hitX));
 }
 
 if instance_exists(hitBox1)
 {
-    draw_text(50, 200, "Hitbox Level: " + string(hitBox1.level));
-    draw_text(50, 220, "Hitbox Id: " + string(hitBox1.hitId));
-    draw_text(50, 240, "PlayerHit: " + string(hitBox1.playerHit))
+    draw_text(50, 240, "Hitbox Level: " + string(hitBox1.level));
+    draw_text(50, 260, "Hitbox Id: " + string(hitBox1.hitId));
+    draw_text(50, 280, "PlayerHit: " + string(hitBox1.playerHit))
 }
 
 /*if playerId = 2

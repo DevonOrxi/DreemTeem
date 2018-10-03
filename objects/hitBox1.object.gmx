@@ -74,6 +74,8 @@ if inst.playerId = hitId
     else {
         dir = -1;
     }
+    image_yscale = inst.image_yscale;
+    image_xscale = inst.image_xscale;
 }
 
 if playerHit != inst.playerId

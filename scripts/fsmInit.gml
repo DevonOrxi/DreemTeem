@@ -35,6 +35,9 @@ hitLevel = 0;
 hitAngle = 0;
 hitX = 0;
 hitY = 0;
+hitPosX = 0;
+hitPosY = 0;
+freeze = false;
 
 //Getting Punched3 - Critical
 critical = false;
