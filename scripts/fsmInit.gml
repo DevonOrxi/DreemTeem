@@ -5,29 +5,49 @@ else
     state = playerState.FALLING;
 startedState = false;
 
+sprite_index = idle;
+
 //Joystick and playerId
 global.playerId += 1;
 playerId = global.playerId;
 joySlot = -1;
 
+//Charging
+chargePower = 0; //Amount to charge
+chargeInc = 0.2; //How much to charge per frame
+chargeLevel = 0; //Level of harge
+chargePunch1 = 5; //Charge for punch1
+chargePunch2 = 10; //Charge for punch2
+chargePunch3 = 15; //Charge for punch3
+
 //Punching
 angle = 0; //Angle of attack
 angleBase = 0;
-force = 0; //Punch charge strength
-punchLevel = 0;
-punchLevelForce = 0;
 punchCancel = false;
-forceLimit = 35; //Max amount of force
-forceGrow = 0.2; //How fast force increases
 punchTime = 0; //Time in punching state
 punchLow = 1; //Amount by frame te reduce time punching
+freezeTime = 90;
+connect = false;
 
-//Damaging
-hit = false;
+//Getting Hit
+gotHit = false;
+hitLevel = 0;
+hitAngle = 0;
+hitX = 0;
+hitY = 0;
+
+//Getting Punched3 - Critical
+critical = false;
+criticalForce = 100;
+stopCritDeath = true; //Player is not flying to death
+
+hurting = false;
 
 //Death, respawn & invinsibility timers and coordenates
 respawnX = room_width/2;
 respawnY = room_height/2;
+respawnTime = 120;
+invTime = 120;
 
 //Physics & movement
 initialize_movement_entity(
@@ -38,18 +58,11 @@ initialize_movement_entity(
     solids,
     solids_ow);
 
+//Gamefeel
+vibeL = 0;
+vibeR = 0;    
+    
 //States (Temporary state machine)
 alive = true;
 inv = false;
-charging = false;
-punching = false;
 falling = false;
-
-//Sprite (this is meant for testing only)
-if playerId = 1 {
-    sprite_index = char1;
-}
-
-if playerId = 2 {
-    sprite_index = char2;
-}

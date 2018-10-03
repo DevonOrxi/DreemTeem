@@ -1,1 +1,1 @@
-return (joyR1R && force > 5);
+return (joyR1R && chargeLevel = 1);

@@ -1,1 +1,1 @@
-return (vsp[0] != 0 && !isGrounded() && !punching && image_index > 3);
+return (vsp[0] != 0 && !isGrounded() && punchTime = 0 && (image_index = (image_number -1)));

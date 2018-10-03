@@ -9,10 +9,28 @@ if !startedState {
     case playerState.PUNCHING :
         enterPunching();
         break;
+    case playerState.PUNCHING2 :
+        enterPunching2();
+        break;
+    case playerState.PUNCHING3 :
+        enterPunching3();
+        break;
+    case playerState.CONNECT :
+        enterConnect();
+        break;
     case playerState.PUNCH_TO_IDLE :
         break;
     case playerState.HURTING :
         enterHurting();
+        break;
+    case playerState.KNOCKBACK :
+        enterKnockback();
+        break;
+    case playerState.STUN :
+        enterStun();
+        break;
+    case playerState.CRITICAL :
+        enterCritical();
         break;
     case playerState.HURTING_TO_FALLING :
         break;

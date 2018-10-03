@@ -1,2 +1,2 @@
 // PlACEHOLDER
-return (vsp[0] == 0 && isGrounded() && !punching)
+return (vsp[0] == 0 && isGrounded() && punchTime = 0)
