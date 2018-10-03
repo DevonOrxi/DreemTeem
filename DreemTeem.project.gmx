@@ -21,6 +21,7 @@
     <sound>sound\sound13_Charging</sound>
     <sound>sound\sound14_Fully_charged</sound>
     <sound>sound\sound15_music</sound>
+    <sound>sound\sound16_Tema_menu</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\char1</sprite>
@@ -140,6 +141,7 @@
     <scripts name="Joysticks">
       <script>scripts\joySupport.gml</script>
       <script>scripts\joyDebug.gml</script>
+      <script>scripts\joyBind.gml</script>
     </scripts>
     <scripts name="Misc">
       <script>scripts\stateEnumToString.gml</script>
@@ -162,6 +164,7 @@
     </objects>
     <objects name="Managers">
       <object>objects\joyManager</object>
+      <object>objects\mainMenuManager</object>
       <object>objects\playerManager</object>
       <object>objects\screenShaker</object>
     </objects>
@@ -186,6 +189,7 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\punchTest</room>
+    <room>rooms\mainMenu</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
