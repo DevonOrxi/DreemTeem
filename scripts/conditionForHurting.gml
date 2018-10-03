@@ -1,2 +1,1 @@
-// PlACEHOLDER
-return false;
+return (gotHit = true);

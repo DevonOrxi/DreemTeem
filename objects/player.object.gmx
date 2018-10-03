@@ -31,6 +31,141 @@
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="9">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Invincibility stop
+inv = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="8">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Respawn player
+warp_movement_entity(respawnX, respawnY);
+stopCritDeath = true;
+alive = true;
+inv = true;
+alarm[9] = invTime;
+
+//Stop all movement
+add_movement_direction_acceleration(0, 0);
+force = 0;
+
+//Reset everything
+chargePower = 0; //Amount to charge
+chargeLevel = 0; //Level of harge
+
+//Punching
+angle = 0; //Angle of attack
+angleBase = 0;
+punchCancel = false;
+punchTime = 0; //Time in punching state
+connect = false;
+
+//Getting Hit
+gotHit = false;
+hitLevel = 0;
+hitAngle = 0;
+
+//Getting Punched3 - Critical
+critical = false;
+stopCritDeath = true; //Player is not flying to death
+
+hurting = false;
+
+//Damage
+hurting = false;
+hit = 0;
+connect = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Freeze
+add_movement_direction_acceleration(0, 0);
+connect = false;
+punchTime = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="6">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Get punched
+hurting = false;
+critical = true;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="1">
       <action>
         <libid>1</libid>
@@ -153,6 +288,8 @@ force = 0;
 joySupport();
 
 fsmUpdate();
+
+
 </string>
           </argument>
         </arguments>
@@ -178,16 +315,41 @@ fsmUpdate();
             <string>draw_self();
 
 ///DEBUG
-
+draw_set_colour(c_black);
 //Punch debug
 if playerId = 1
 {
-draw_text(50, 40, "ESTADO: " + stateEnumToString(state));
-draw_text(50, 60, "Punch Level: " + string(punchLevel));
-draw_text(50, 80, "Punch Force: " + string(force));
-draw_text(50, 100, "Image Angle: " + string(image_angle));
-draw_text(50, 120, "Image Y: " + string(image_yscale));
-draw_text(50, 140, "Image X: " + string(image_xscale));}
+draw_text(50, 40, "State: " + stateEnumToString(state));
+draw_text(50, 60, "Charge Power: " + string(chargePower));
+draw_text(50, 80, "Charge Level: " + string(chargeLevel));
+draw_text(50, 100, "Sprite: " + sprite_get_name(sprite_index));
+draw_text(50, 120, "Got hit?: " + string(gotHit));
+draw_text(50, 140, "Connect: " + string(connect));
+draw_text(50, 160, "Punch Time: " + string(punchTime));
+}
+
+if playerId = 2
+{
+draw_text(550, 40, "State: " + stateEnumToString(state));
+draw_text(550, 60, "Charge Power: " + string(chargePower));
+draw_text(550, 80, "Charge Level: " + string(chargeLevel));
+draw_text(550, 100, "Sprite: " + sprite_get_name(sprite_index));
+draw_text(550, 120, "Got hit?: " + string(gotHit));
+draw_text(550, 140, "Connect: " + string(connect));
+draw_text(550, 160, "Death: " + string(stopCritDeath));
+}
+
+if instance_exists(hitBox1)
+{
+    draw_text(50, 200, "Hitbox Level: " + string(hitBox1.level));
+    draw_text(50, 220, "Hitbox Id: " + string(hitBox1.hitId));
+    draw_text(50, 240, "PlayerHit: " + string(hitBox1.playerHit))
+}
+
+/*if playerId = 2
+{
+draw_text(550, 40, "Hurting: " + string(hurting));
+}
 //draw_text(x, y+20, "Force - " + string(force));
 //draw_text(x, y-20, "PunchTime - " + string(punchTime));
 

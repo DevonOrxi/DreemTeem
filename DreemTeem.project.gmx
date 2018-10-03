@@ -4,56 +4,122 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\sound0_Critical_hit</sound>
+    <sound>sound\sound1_Death_explosion</sound>
+    <sound>sound\sound2_estrellita_pre_critical</sound>
+    <sound>sound\sound3_Hit1</sound>
+    <sound>sound\sound4_Hit2</sound>
+    <sound>sound\sound5_landing</sound>
+    <sound>sound\sound6_Menu_select_negativo</sound>
+    <sound>sound\sound7_Menu_select_positivo</sound>
+    <sound>sound\sound8_Menu_select</sound>
+    <sound>sound\sound9_vine1</sound>
+    <sound>sound\sound10_vine2</sound>
+    <sound>sound\sound11_vine3</sound>
+    <sound>sound\sound12_Whoosh</sound>
+    <sound>sound\sound13_Charging</sound>
+    <sound>sound\sound14_Fully_charged</sound>
+    <sound>sound\sound15_music</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\char1</sprite>
     <sprite>sprites\char2</sprite>
     <sprite>sprites\sprite1</sprite>
     <sprite>sprites\sBlock</sprite>
     <sprite>sprites\sBlockOW</sprite>
+    <sprite>sprites\hitBox</sprite>
     <sprites name="Player">
       <sprite>sprites\idle</sprite>
-      <sprite>sprites\preCharge</sprite>
-      <sprite>sprites\charge</sprite>
-      <sprite>sprites\punch</sprite>
       <sprite>sprites\fall</sprite>
       <sprite>sprites\land</sprite>
       <sprite>sprites\hurt</sprite>
+      <sprites name="Punch">
+        <sprite>sprites\punch</sprite>
+        <sprite>sprites\punch2</sprite>
+        <sprite>sprites\punch3</sprite>
+        <sprite>sprites\contact3</sprite>
+        <sprite>sprites\contact2</sprite>
+        <sprite>sprites\contact</sprite>
+      </sprites>
+      <sprites name="Charge">
+        <sprite>sprites\preCharge</sprite>
+        <sprite>sprites\charge</sprite>
+        <sprite>sprites\charge2</sprite>
+        <sprite>sprites\charge3</sprite>
+      </sprites>
+    </sprites>
+    <sprites name="Level">
+      <sprite>sprites\floorMid</sprite>
+      <sprite>sprites\floorLeft</sprite>
+      <sprite>sprites\floorRight</sprite>
+      <sprite>sprites\subLeft</sprite>
+      <sprite>sprites\subMid</sprite>
+      <sprite>sprites\subRight</sprite>
+      <sprite>sprites\botLeft</sprite>
+      <sprite>sprites\botMid</sprite>
+      <sprite>sprites\botRight</sprite>
+    </sprites>
+    <sprites name="Particles">
+      <sprite>sprites\effectDeath</sprite>
     </sprites>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\bg</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="FSM">
       <scripts name="Conditions">
         <scripts name="ConditionFor">
+          <script>scripts\conditionCheck.gml</script>
           <script>scripts\conditionForIdle.gml</script>
-          <script>scripts\conditionForCharging.gml</script>
+          <script>scripts\conditionForLandingToIdle.gml</script>
           <script>scripts\conditionForPunching.gml</script>
+          <script>scripts\conditionForPunching2.gml</script>
+          <script>scripts\conditionForPunching3.gml</script>
+          <script>scripts\conditionForCharging.gml</script>
           <script>scripts\conditionForPunchToIdle.gml</script>
           <script>scripts\conditionForHurting.gml</script>
           <script>scripts\conditionForFalling.gml</script>
           <script>scripts\conditionForLanding.gml</script>
           <script>scripts\conditionForHurtingToFalling.gml</script>
           <script>scripts\conditionForIdleCharge.gml</script>
+          <script>scripts\conditionForConnect.gml</script>
+          <script>scripts\conditionForDisconnect.gml</script>
+          <script>scripts\conditionForKnockback.gml</script>
+          <script>scripts\conditionForCritical.gml</script>
+          <script>scripts\conditionForStun.gml</script>
+          <script>scripts\conditionForCriticalToFalling.gml</script>
         </scripts>
-        <script>scripts\conditionCheck.gml</script>
       </scripts>
       <scripts name="StateBehaviour">
         <scripts name="Enters">
           <script>scripts\enterIdle.gml</script>
           <script>scripts\enterCharging.gml</script>
           <script>scripts\enterPunching.gml</script>
+          <script>scripts\enterPunching2.gml</script>
+          <script>scripts\enterPunching3.gml</script>
           <script>scripts\enterHurting.gml</script>
           <script>scripts\enterFalling.gml</script>
           <script>scripts\enterLanding.gml</script>
+          <script>scripts\enterConnect.gml</script>
+          <script>scripts\enterKnockback.gml</script>
+          <script>scripts\enterStun.gml</script>
+          <script>scripts\enterCritical.gml</script>
         </scripts>
         <scripts name="Updates">
           <script>scripts\updateCharging.gml</script>
           <script>scripts\updatePunching.gml</script>
+          <script>scripts\updatePunching3.gml</script>
           <script>scripts\updateFalling.gml</script>
           <script>scripts\updateIdle.gml</script>
           <script>scripts\updateLanding.gml</script>
+          <script>scripts\updateConnect.gml</script>
+          <script>scripts\updateHurting.gml</script>
+        </scripts>
+        <scripts name="Exits">
+          <script>scripts\exitPunching.gml</script>
         </scripts>
         <script>scripts\fsmEnter.gml</script>
         <script>scripts\fsmExit.gml</script>
@@ -79,13 +145,20 @@
       <script>scripts\stateEnumToString.gml</script>
       <script>scripts\isGrounded.gml</script>
     </scripts>
+    <scripts name="Player Actions">
+      <script>scripts\borrador.gml</script>
+    </scripts>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\font0</font>
+  </fonts>
   <objects name="objects">
     <objects name="Entities">
+      <object>objects\player</object>
       <object>objects\oBlock</object>
       <object>objects\oBlockOW</object>
-      <object>objects\player</object>
       <object>objects\stage</object>
+      <object>objects\hitBox1</object>
     </objects>
     <objects name="Managers">
       <object>objects\joyManager</object>
@@ -95,6 +168,20 @@
     <objects name="Parents">
       <object>objects\solids</object>
       <object>objects\solids_ow</object>
+    </objects>
+    <objects name="Level">
+      <object>objects\FM</object>
+      <object>objects\FL</object>
+      <object>objects\FR</object>
+      <object>objects\SL</object>
+      <object>objects\SM</object>
+      <object>objects\SR</object>
+      <object>objects\BL</object>
+      <object>objects\BM</object>
+      <object>objects\BR</object>
+    </objects>
+    <objects name="Particles">
+      <object>objects\deathEffect</object>
     </objects>
   </objects>
   <rooms name="rooms">
