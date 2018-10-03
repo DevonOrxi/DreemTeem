@@ -3,11 +3,11 @@ if punchTime > 0 {
     punchTime -= punchLow;
 }
 
-//Vibration
+//Slowly Lower Vibration
 if vibeL > 0 && vibeL > 0
 {
-    vibeL -= 0.05;
-    vibeR -= 0.05;
+    vibeL -= 0.07;
+    vibeR -= 0.07;
 }
 
 gamepad_set_vibration(joySlot, vibeL, vibeR);

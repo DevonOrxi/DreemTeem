@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>angle = 0;
-
+/*
 //Muerte abajo
 if y &gt; room_height &amp;&amp; x &lt; room_width
 {
@@ -52,6 +52,13 @@ if x = room_width
 }
 
 image_angle = angle;
+*/
+//Shake Screen
+var inst = instance_create(x, y, screenShaker);
+if inst {
+    inst.shakeX = 3;
+    inst.shakeY = 3;
+}
 
 audio_play_sound(sound1_Death_explosion, 80, false);
 </string>

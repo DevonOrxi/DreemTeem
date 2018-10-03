@@ -9,6 +9,7 @@ switch state {
         if (conditionForPunching()) { return playerState.PUNCHING; }
         if (conditionForPunching2()) { return playerState.PUNCHING2; }
         if (conditionForPunching3()) { return playerState.PUNCHING3; }
+        if (conditionForChargingToFalling()) { return playerState.FALLING; }
         break;
     case playerState.PUNCHING :
         break;

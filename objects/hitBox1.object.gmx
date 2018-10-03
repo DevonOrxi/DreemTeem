@@ -80,6 +80,7 @@ if inst.playerId = hitId
 
 if playerHit != inst.playerId
     {
+        image_angle = angle;
         inst.connect = true;
         instance_destroy();
     }

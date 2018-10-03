@@ -55,25 +55,37 @@ if instance_exists(hitBox1) {
 //Death and respawn
 if y > (room_height + sprite_height) && alive = true {
     alive = false;
-    instance_create(x, room_height, deathEffect);
+    var inst = instance_create(x, room_height, deathEffect);
+    inst.image_angle = image_angle;
+    inst.image_xscale = image_xscale;
+    inst.image_yscale = image_yscale;
     alarm[8] = respawnTime;
 }
 
 if y < -50 && alive = true {
     alive = false;
-    instance_create(x, 0, deathEffect);
+    var inst = instance_create(x, 0, deathEffect);
+    inst.image_angle = image_angle;
+    inst.image_xscale = image_xscale;
+    inst.image_yscale = image_yscale;
     alarm[8] = respawnTime;
 }
 
 if x > (room_width + sprite_width/2) && alive = true {
     alive = false;
-    instance_create(room_width, y, deathEffect);
+    var inst = instance_create(room_width, y, deathEffect);
+    inst.image_angle = image_angle;
+    inst.image_xscale = image_xscale;
+    inst.image_yscale = image_yscale;
     alarm[8] = respawnTime;
 }
 
 if x < -50 && alive = true {
     alive = false;
-    instance_create(0, y, deathEffect);
+    var inst = instance_create(0, y, deathEffect);
+    inst.image_angle = image_angle;
+    inst.image_xscale = image_xscale;
+    inst.image_yscale = image_yscale;
     alarm[8] = respawnTime;
 }
 

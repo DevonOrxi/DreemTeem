@@ -1,5 +1,6 @@
 //Sprite
 image_index = 0;
+image_speed = 0.2;
 image_angle = hitAngle;
 sprite_index = hurt;
 image_xscale = hitX;

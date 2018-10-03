@@ -44,6 +44,8 @@ enum playerState {
     LAND_TO_IDLE
 }
 
+//Test
+global.angleTest = 0;
 //Physics things
 global.playerGravity = 0.55;
 global.playerFriction = 0.55;

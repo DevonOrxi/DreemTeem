@@ -91,6 +91,7 @@
           <script>scripts\conditionForCritical.gml</script>
           <script>scripts\conditionForStun.gml</script>
           <script>scripts\conditionForCriticalToFalling.gml</script>
+          <script>scripts\conditionForChargingToFalling.gml</script>
         </scripts>
       </scripts>
       <scripts name="StateBehaviour">

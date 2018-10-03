@@ -81,7 +81,7 @@ alarm[9] = invTime;
 
 //Stop all movement
 add_movement_direction_acceleration(0, 0);
-force = 0;
+gamepad_set_vibration(joySlot, 0, 0);
 
 //Reset everything
 chargePower = 0; //Amount to charge
@@ -326,6 +326,8 @@ draw_text(50, 100, "Sprite: " + sprite_get_name(sprite_index));
 draw_text(50, 120, "Got hit?: " + string(gotHit));
 draw_text(50, 140, "Connect: " + string(connect));
 draw_text(50, 160, "Punch Time: " + string(punchTime));
+draw_text(50, 180, "Angle: " + string(image_angle));
+draw_text(50, 200, "Hut Angle: " + string(hitAngle));
 }
 
 if playerId = 2
@@ -337,30 +339,18 @@ draw_text(550, 100, "Sprite: " + sprite_get_name(sprite_index));
 draw_text(550, 120, "Got hit?: " + string(gotHit));
 draw_text(550, 140, "Connect: " + string(connect));
 draw_text(550, 160, "Death: " + string(stopCritDeath));
-draw_text(50, 180, "hitY: " + string(hitY));
-draw_text(50, 200, "hitX: " + string(hitX));
+draw_text(550, 180, "hitY: " + string(hitY));
+draw_text(550, 200, "hitX: " + string(hitX));
+draw_text(550, 220, "Angle: " + string(image_angle));
 }
 
 if instance_exists(hitBox1)
 {
-    draw_text(50, 240, "Hitbox Level: " + string(hitBox1.level));
+    draw_text(50, 240, "Angle: " + string(hitBox1.angle));
     draw_text(50, 260, "Hitbox Id: " + string(hitBox1.hitId));
     draw_text(50, 280, "PlayerHit: " + string(hitBox1.playerHit))
 }
 
-/*if playerId = 2
-{
-draw_text(550, 40, "Hurting: " + string(hurting));
-}
-//draw_text(x, y+20, "Force - " + string(force));
-//draw_text(x, y-20, "PunchTime - " + string(punchTime));
-
-//Inv debug
-//draw_text(x, y, "Inv - " + string(inv));
-
-//control_debug();
-//draw_text(x, y, "Player - " + string(player));
-//draw_text(x, y+20, "Joyslot - " + string(joySlot));
 </string>
           </argument>
         </arguments>

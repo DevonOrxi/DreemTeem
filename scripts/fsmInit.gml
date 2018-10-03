@@ -26,7 +26,7 @@ angleBase = 0;
 punchCancel = false;
 punchTime = 0; //Time in punching state
 punchLow = 1; //Amount by frame te reduce time punching
-freezeTime = 90;
+freezeTime = 60;
 connect = false;
 
 //Getting Hit
