@@ -1,17 +1,15 @@
-image_speed = 0;
-
-switch punchLevel{
+switch chargeLevel{
     case 1:
-    sprite_index = punch;
+    sprite_index = contact;
     break;
     case 2:
-    sprite_index = punch2;
+    sprite_index = contact2;
     break;
     case 3:
-    sprite_index = punch3;
+    sprite_index = contact3;
     break;
 }
 
-image_index = 3;
+image_speed = 0;
 alarm[7] = freezeTime;
 gamepad_set_vibration(joySlot, 0, 0);

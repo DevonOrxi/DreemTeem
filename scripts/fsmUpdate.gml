@@ -15,6 +15,9 @@ switch state {
     case playerState.PUNCHING :
         updatePunching();
         break;
+    case playerState.PUNCHING3 :
+        updatePunching3();
+        break;
     case playerState.CONNECT :
         updateConnect();
     case playerState.PUNCH_TO_IDLE :
@@ -30,8 +33,21 @@ switch state {
         break;
     case playerState.LAND_TO_IDLE :
         break;
+}
+
+//Get Hit
+if instance_exists(hitBox1) {
+    if instance_place(x, y, hitBox1) {
+        var inst = instance_place(x, y, hitBox1);
+        if inst.hitId != playerId {
+            gotHit = true;
+            inst.playerHit = playerId;
+            hitAngle = inst.angle;
+            hitX = inst.image_xscale;
+            hitY = inst.image_yscale;
+        }
     }
-    
+}
 
 //Death and respawn
 if y > (room_height + sprite_height) && alive = true {
@@ -58,123 +74,16 @@ if x < -50 && alive = true {
     alarm[8] = respawnTime;
 }
 
-//Detect being hit
-if playerId = 1
-{
-    if (place_meeting(x, y, hitBox2))
-    {
-        hitBox2.connect = true;
-        hit = 2;
-        deathAngle = hitBox2.angle;
-        hurting = true;
-    }
-    
-    if (place_meeting(x, y, hitBox3))
-    {
-        hitBox3.connect = true;
-        hit = 3;
-        deathAngle = hitBox3.angle;
-        hurting = true;
-    }
-    
-    if (place_meeting(x, y, hitBox4))
-    {
-        hitBox4.connect = true;
-        hit = 4;
-        deathAngle = hitBox4.angle;
-        hurting = true;
-    }
-}
-
-if playerId = 2
-{
-    if (place_meeting(x, y, hitBox1))
-    {
-        hitBox1.connect = true;
-        hit = 1;
-        deathAngle = hitBox1.angle;
-        hurting = true;
-    }
-    
-    if (place_meeting(x, y, hitBox3))
-    {
-        hitBox3.connect = true;
-        hit = 3;
-        deathAngle = hitBox3.angle;
-        hurting = true;
-    }
-    
-    if (place_meeting(x, y, hitBox4))
-    {
-        hitBox4.connect = true;
-        hit = 4;
-        deathAngle = hitBox4.angle;
-        hurting = true;
-    }
-}
-
-if playerId = 3
-{
-    if (place_meeting(x, y, hitBox2))
-    {
-        hitBox2.connect = true;
-        hit = 2;
-        deathAngle = hitBox2.angle;
-        hurting = true;
-    }
-    
-    if (place_meeting(x, y, hitBox1))
-    {
-        hitBox1.connect = true;
-        hit = 1;
-        deathAngle = hitBox1.angle;
-        hurting = true;
-    }
-    
-    if (place_meeting(x, y, hitBox4))
-    {
-        hitBox4.connect = true;
-        hit = 4;
-        deathAngle = hitBox4.angle;
-        hurting = true;
-    }
-}
-
-if playerId = 4
-{
-    if (place_meeting(x, y, hitBox2))
-    {
-        hitBox2.connect = true;
-        hit = 2;
-        deathAngle = hitBox2.angle;
-        hurting = true;
-    }
-    
-    if (place_meeting(x, y, hitBox3))
-    {
-        hitBox3.connect = true;
-        hit = 3;
-        deathAngle = hitBox3.angle;
-        hurting = true;
-    }
-    
-    if (place_meeting(x, y, hitBox1))
-    {
-        hitBox1.connect = true;
-        hit = 1;
-        deathAngle = hitBox1.angle;
-        hurting = true;
-    }
-}
-
 //Sprite
-if connect = false && hurting = false && charging = false{
-    image_speed = 0.1;
-}
-
-if sprite_index != punch && sprite_index != punch2 && sprite_index != punch3
+if
+sprite_index != punch &&
+sprite_index != punch2 &&
+sprite_index != punch3 &&
+sprite_index != contact &&
+sprite_index != contact2 &&
+sprite_index != contact3
 {
-    if hurting = false
+    if gotHit = false
     {
     if angle < 270 && angle > 90 {
         image_xscale = -1;
@@ -183,25 +92,4 @@ if sprite_index != punch && sprite_index != punch2 && sprite_index != punch3
         image_xscale = 1;
     }
     }
-}
-
-if sprite_index = punch or sprite_index = punch2 or sprite_index = punch3
-{
-    if connect = false
-    {
-    if image_index <= 3
-    {   
-        image_angle = angleBase;
-    }
-    else
-    {
-        image_angle = 0;
-    }
-    
-    if angle < 270 && angle > 90 {
-        image_yscale = -1;
-        image_xscale = 1;
-    }
-    }
-    //image_speed = 0.2;
 }

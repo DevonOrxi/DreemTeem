@@ -1,5 +1,6 @@
 //Sprite
 image_index = 0;
+image_speed = 0.1;
 image_angle = 0;
 sprite_index = land;
 var vineNum = round(random_range(0,2));
@@ -16,3 +17,5 @@ switch vineNum {
         audio_play_sound(sound11_vine3, 80, false);
         break;
 }
+
+gamepad_set_vibration(joySlot, 0, 0);

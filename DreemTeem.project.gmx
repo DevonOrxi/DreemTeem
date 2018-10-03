@@ -28,19 +28,26 @@
     <sprite>sprites\sprite1</sprite>
     <sprite>sprites\sBlock</sprite>
     <sprite>sprites\sBlockOW</sprite>
+    <sprite>sprites\hitBox</sprite>
     <sprites name="Player">
       <sprite>sprites\idle</sprite>
-      <sprite>sprites\preCharge</sprite>
-      <sprite>sprites\charge</sprite>
-      <sprite>sprites\charge2</sprite>
-      <sprite>sprites\charge3</sprite>
-      <sprite>sprites\punch</sprite>
       <sprite>sprites\fall</sprite>
       <sprite>sprites\land</sprite>
       <sprite>sprites\hurt</sprite>
-      <sprite>sprites\hitBox</sprite>
-      <sprite>sprites\punch2</sprite>
-      <sprite>sprites\punch3</sprite>
+      <sprites name="Punch">
+        <sprite>sprites\punch</sprite>
+        <sprite>sprites\punch2</sprite>
+        <sprite>sprites\punch3</sprite>
+        <sprite>sprites\contact3</sprite>
+        <sprite>sprites\contact2</sprite>
+        <sprite>sprites\contact</sprite>
+      </sprites>
+      <sprites name="Charge">
+        <sprite>sprites\preCharge</sprite>
+        <sprite>sprites\charge</sprite>
+        <sprite>sprites\charge2</sprite>
+        <sprite>sprites\charge3</sprite>
+      </sprites>
     </sprites>
     <sprites name="Level">
       <sprite>sprites\floorMid</sprite>
@@ -65,8 +72,12 @@
     <scripts name="FSM">
       <scripts name="Conditions">
         <scripts name="ConditionFor">
+          <script>scripts\conditionCheck.gml</script>
           <script>scripts\conditionForIdle.gml</script>
+          <script>scripts\conditionForLandingToIdle.gml</script>
           <script>scripts\conditionForPunching.gml</script>
+          <script>scripts\conditionForPunching2.gml</script>
+          <script>scripts\conditionForPunching3.gml</script>
           <script>scripts\conditionForCharging.gml</script>
           <script>scripts\conditionForPunchToIdle.gml</script>
           <script>scripts\conditionForHurting.gml</script>
@@ -77,29 +88,30 @@
           <script>scripts\conditionForConnect.gml</script>
           <script>scripts\conditionForDisconnect.gml</script>
           <script>scripts\conditionForKnockback.gml</script>
-          <script>scripts\conditionForDeath.gml</script>
+          <script>scripts\conditionForCritical.gml</script>
           <script>scripts\conditionForStun.gml</script>
-          <script>scripts\conditionForDeathToFalling.gml</script>
-          <script>scripts\script48.gml</script>
+          <script>scripts\conditionForCriticalToFalling.gml</script>
         </scripts>
-        <script>scripts\conditionCheck.gml</script>
       </scripts>
       <scripts name="StateBehaviour">
         <scripts name="Enters">
           <script>scripts\enterIdle.gml</script>
           <script>scripts\enterCharging.gml</script>
           <script>scripts\enterPunching.gml</script>
+          <script>scripts\enterPunching2.gml</script>
+          <script>scripts\enterPunching3.gml</script>
           <script>scripts\enterHurting.gml</script>
           <script>scripts\enterFalling.gml</script>
           <script>scripts\enterLanding.gml</script>
           <script>scripts\enterConnect.gml</script>
           <script>scripts\enterKnockback.gml</script>
           <script>scripts\enterStun.gml</script>
-          <script>scripts\enterDeath.gml</script>
+          <script>scripts\enterCritical.gml</script>
         </scripts>
         <scripts name="Updates">
           <script>scripts\updateCharging.gml</script>
           <script>scripts\updatePunching.gml</script>
+          <script>scripts\updatePunching3.gml</script>
           <script>scripts\updateFalling.gml</script>
           <script>scripts\updateIdle.gml</script>
           <script>scripts\updateLanding.gml</script>
@@ -133,22 +145,20 @@
       <script>scripts\stateEnumToString.gml</script>
       <script>scripts\isGrounded.gml</script>
     </scripts>
+    <scripts name="Player Actions">
+      <script>scripts\borrador.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font0</font>
   </fonts>
   <objects name="objects">
     <objects name="Entities">
+      <object>objects\player</object>
       <object>objects\oBlock</object>
       <object>objects\oBlockOW</object>
-      <object>objects\player</object>
       <object>objects\stage</object>
-      <objects name="PunchHitBox">
-        <object>objects\hitBox1</object>
-        <object>objects\hitBox2</object>
-        <object>objects\hitBox3</object>
-        <object>objects\hitBox4</object>
-      </objects>
+      <object>objects\hitBox1</object>
     </objects>
     <objects name="Managers">
       <object>objects\joyManager</object>

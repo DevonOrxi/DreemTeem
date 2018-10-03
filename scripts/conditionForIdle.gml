@@ -1,1 +1,1 @@
-return (vsp[0] == 0 && isGrounded() && !punching && image_index > 3 && !falling && !connect);
+return (vsp[0] == 0 && isGrounded() && punchTime = 0 && !falling && !connect);

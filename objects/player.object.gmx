@@ -74,6 +74,7 @@ inv = false;
             <kind>1</kind>
             <string>///Respawn player
 warp_movement_entity(respawnX, respawnY);
+stopCritDeath = true;
 alive = true;
 inv = true;
 alarm[9] = invTime;
@@ -82,21 +83,27 @@ alarm[9] = invTime;
 add_movement_direction_acceleration(0, 0);
 force = 0;
 
-//Reset everything just in case lol
+//Reset everything
+chargePower = 0; //Amount to charge
+chargeLevel = 0; //Level of harge
+
 //Punching
 angle = 0; //Angle of attack
 angleBase = 0;
-force = 0; //Punch charge strength
-punchLevel = 0;
-punchLevelForce = 0;
 punchCancel = false;
-forceLimit = 35; //Max amount of force
-forceGrow = 0.2; //How fast force increases
 punchTime = 0; //Time in punching state
-punchLow = 1; //Amount by frame te reduce time punching
-freezeTime = 90;
-deathAngle = 0;
-deathForce = 100;
+connect = false;
+
+//Getting Hit
+gotHit = false;
+hitLevel = 0;
+hitAngle = 0;
+
+//Getting Punched3 - Critical
+critical = false;
+stopCritDeath = true; //Player is not flying to death
+
+hurting = false;
 
 //Damage
 hurting = false;
@@ -126,9 +133,8 @@ connect = false;
             <kind>1</kind>
             <string>///Freeze
 add_movement_direction_acceleration(0, 0);
-force = 0;
 connect = false;
-punching = false;
+punchTime = 0;
 </string>
           </argument>
         </arguments>
@@ -151,32 +157,10 @@ punching = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Get punched
+            <string>///Get punched
 hurting = false;
+critical = true;
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="5">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>audio_play_sound(sound0_Critical_hit, 80, false);
 </string>
           </argument>
         </arguments>
@@ -329,25 +313,37 @@ fsmUpdate();
           <argument>
             <kind>1</kind>
             <string>draw_self();
-/*
+
 ///DEBUG
 draw_set_colour(c_black);
 //Punch debug
 if playerId = 1
 {
-draw_text(50, 40, "ESTADO: " + stateEnumToString(state));
-draw_text(50, 60, "Punch Level: " + string(punchLevel));
-draw_text(50, 80, "Punch Force: " + string(force));
-draw_text(50, 100, "Image Angle: " + string(image_angle));
-draw_text(50, 120, "Image Y: " + string(image_yscale));
-draw_text(50, 140, "Image X: " + string(image_xscale));
-draw_text(50, 160, "Hurting: " + string(hurting));
-draw_text(50, 180, "Death: " + string(death));
+draw_text(50, 40, "State: " + stateEnumToString(state));
+draw_text(50, 60, "Charge Power: " + string(chargePower));
+draw_text(50, 80, "Charge Level: " + string(chargeLevel));
+draw_text(50, 100, "Sprite: " + sprite_get_name(sprite_index));
+draw_text(50, 120, "Got hit?: " + string(gotHit));
+draw_text(50, 140, "Connect: " + string(connect));
+draw_text(50, 160, "Punch Time: " + string(punchTime));
+}
+
+if playerId = 2
+{
+draw_text(550, 40, "State: " + stateEnumToString(state));
+draw_text(550, 60, "Charge Power: " + string(chargePower));
+draw_text(550, 80, "Charge Level: " + string(chargeLevel));
+draw_text(550, 100, "Sprite: " + sprite_get_name(sprite_index));
+draw_text(550, 120, "Got hit?: " + string(gotHit));
+draw_text(550, 140, "Connect: " + string(connect));
+draw_text(550, 160, "Death: " + string(stopCritDeath));
 }
 
 if instance_exists(hitBox1)
 {
     draw_text(50, 200, "Hitbox Level: " + string(hitBox1.level));
+    draw_text(50, 220, "Hitbox Id: " + string(hitBox1.hitId));
+    draw_text(50, 240, "PlayerHit: " + string(hitBox1.playerHit))
 }
 
 /*if playerId = 2

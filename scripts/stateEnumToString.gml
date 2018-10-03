@@ -8,6 +8,12 @@ switch argument0 {
     case playerState.PUNCHING :
         return "PUNCHING";
         break;
+        case playerState.PUNCHING2 :
+        return "PUNCHING2";
+        break;
+        case playerState.PUNCHING3 :
+        return "PUNCHING3";
+        break;
     case playerState.PUNCH_TO_IDLE :
         return "PUNCH_TO_IDLE";
         break;
@@ -20,8 +26,8 @@ switch argument0 {
     case playerState.STUN :
         return "STUN";
         break;
-    case playerState.DEATH :
-        return "DEATH";
+    case playerState.CRITICAL :
+        return "CRITICAL";
         break;
     case playerState.HURTING_TO_FALLING :
         return "HURTING_TO_FALLING";

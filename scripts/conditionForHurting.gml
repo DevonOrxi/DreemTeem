@@ -1,1 +1,1 @@
-return (hurting = true);
+return (gotHit = true);

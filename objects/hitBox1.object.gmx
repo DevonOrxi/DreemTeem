@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-1</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>hitBox</maskName>
@@ -27,6 +27,9 @@
             <kind>1</kind>
             <string>level = 0;
 angle = 0;
+hitId = 0; //Player that owns this hitbox
+playerHit = hitId; //Player that we hit
+dir = 0;
 connect = false;
 </string>
           </argument>
@@ -50,36 +53,34 @@ connect = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var inst = instance_place(x, y, player)
-if inst
+            <string>var inst = instance_place(x, y, player);
+if inst.playerId = hitId
 {
-if inst.playerId = 1
-{
-    if inst.image_index &lt; 3
-    {
-        x = inst.x + lengthdir_x(50,inst.angleBase);
-        y = inst.y + lengthdir_y(50,inst.angleBase);
-    }
-    else
+    //Same angle as player
+    x = inst.x + lengthdir_x(50,inst.angleBase);
+    y = inst.y + lengthdir_y(50,inst.angleBase);
+    angle = inst.angleBase;
+    
+    //Destroy if did not hit anyone
+    if inst.punchTime &lt; 1 &amp;&amp; connect = false
     {
         instance_destroy();
     }
-    //Take angle from player
-    angle = inst.angleBase;
-}
-if connect = true
-{
-    inst.connect = true;
-}
-//Recognize position
-if inst.x &lt; x { //drecha
-    dir = 1;
-}
-else {
-    dir = -1; //izquierda
+    
+    //Recognize position
+    if inst.x &lt; x {
+        dir = 1;
+    }
+    else {
+        dir = -1;
+    }
 }
 
-}
+if playerHit != inst.playerId
+    {
+        inst.connect = true;
+        instance_destroy();
+    }
 </string>
           </argument>
         </arguments>
