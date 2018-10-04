@@ -3,6 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
+  <datafiles number="1" name="datafiles"/>
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\sound0_Critical_hit</sound>
@@ -140,7 +141,6 @@
     </scripts>
     <scripts name="Joysticks">
       <script>scripts\joySupport.gml</script>
-      <script>scripts\joyDebug.gml</script>
       <script>scripts\joyBind.gml</script>
     </scripts>
     <scripts name="Misc">
@@ -152,7 +152,8 @@
     </scripts>
   </scripts>
   <fonts name="fonts">
-    <font>fonts\font0</font>
+    <font>fonts\fGrapesoda64</font>
+    <font>fonts\fGrapesoda128</font>
   </fonts>
   <objects name="objects">
     <objects name="Entities">
@@ -188,8 +189,8 @@
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\punchTest</room>
     <room>rooms\mainMenu</room>
+    <room>rooms\punchTest</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

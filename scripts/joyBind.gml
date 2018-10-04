@@ -3,7 +3,7 @@ var p = 0;
 global.playerConnected = 0;
 
 while (p < global.playerAmount) {
-    if playerJoy[p] == -1 {
+    if global.playerJoy[p] == -1 {
         var found = false;
         var joy_players = 0;
         var joy_index = 0;
@@ -15,14 +15,14 @@ while (p < global.playerAmount) {
             if (gamepad_is_connected(joy_index)) {
                 
                 while (!assigned && joy_players < global.playerAmount) {
-                    if (joy_players != p && joy_index == playerJoy[joy_players])
+                    if (joy_players != p && joy_index == global.playerJoy[joy_players])
                         assigned = true;
                         
                     joy_players++;
                 }
                 
                 if !assigned {
-                    playerJoy[p] = joy_index;
+                    global.playerJoy[p] = joy_index;
                     global.playerConnected++;
                     found = true;
                 }
@@ -31,8 +31,8 @@ while (p < global.playerAmount) {
         }
         p++;
     } else {
-        if !gamepad_is_connected(playerJoy[p]) {
-            playerJoy[p] = -1;
+        if !gamepad_is_connected(global.playerJoy[p]) {
+            global.playerJoy[p] = -1;
         } else {
             p++;
             global.playerConnected++;

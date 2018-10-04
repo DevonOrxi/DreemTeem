@@ -8,6 +8,29 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>canTap = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -25,26 +48,41 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Reorder controllers
+            <string>joyBind();
+
+var slot = global.playerJoy[0];
+
+anaRight = (gamepad_axis_value(slot, gp_axislh) &gt; global.joy_stick_threshold);
+anaLeft = (gamepad_axis_value(slot, gp_axislh) &lt; -global.joy_stick_threshold);
+
+if (canTap) {
+    if (anaLeft &amp;&amp; global.playerAmount &gt; 2)
+        global.playerAmount--;
+        
+    if (anaRight &amp;&amp; global.playerAmount &lt; 4)
+        global.playerAmount++;
+}
+
+canTap = !anaLeft &amp;&amp; !anaRight;
+
+// Reorder controllers
 var newPl = 0;
-var reordered[0] = -1;
+var reordered;
 if (global.playerConnected &lt; global.playerAmount) {
     for (i = 0; i &lt; global.playerAmount; i++) {
-        if (playerJoy[i] != -1) {
-            reordered[newPl] = playerJoy[i];
+        if (global.playerJoy[i] != -1) {
+            reordered[newPl] = global.playerJoy[i];
             newPl++;
         }
     }
     
     for (i = 0; i &lt; global.playerAmount; i++) {
-        if (i &lt;= newPl)
-            playerJoy[i] = reordered[i];
+        if (i &lt; newPl)
+            global.playerJoy[i] = reordered[i];
         else
-            playerJoy[i] = -1;
+            global.playerJoy[i] = -1;
     }
 }
-
-joyBind();
 </string>
           </argument>
         </arguments>
@@ -68,14 +106,16 @@ joyBind();
           <argument>
             <kind>1</kind>
             <string>joySlot = 0;
-playerJoy[0] = -1;
-playerJoy[1] = -1;
-playerJoy[2] = -1;
-playerJoy[3] = -1;
+global.playerJoy[0] = 0;
+global.playerJoy[1] = -1;
+global.playerJoy[2] = -1;
+global.playerJoy[3] = -1;
 
 global.joy_stick_threshold = 0.5;
 global.playerAmount = 2;
 global.playerConnected = 0;
+
+mainMenuMarginH = 380;
 </string>
           </argument>
         </arguments>
@@ -98,10 +138,26 @@ global.playerConnected = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*/control_debug();
+            <string>// Title text
+draw_set_halign(fa_center);
+draw_set_font(fGrapesoda128);
+draw_set_colour($00d5e8);
+draw_text(room_width / 2, room_height / 6, "FURRAZO");
 
-draw_text(room_width/2, room_height/2, "Player1 controller - " + string(playerJoy[0]));
-draw_text(room_width/2, room_height/2 + 20, "Player2 controller - " + string(playerJoy[1]));
+// Players label
+draw_set_halign(fa_left);
+draw_set_font(fGrapesoda64);
+draw_text(mainMenuMarginH, room_height * 4 / 6, "PLAYERS");
+
+// Player counter and arrows
+draw_set_halign(fa_right);
+if (global.playerAmount &lt; 4)
+    draw_text(room_width - mainMenuMarginH, room_height * 4 / 6, "&gt;");
+    
+draw_text(room_width - mainMenuMarginH - 60, room_height * 4 / 6, string(global.playerAmount));
+
+if (global.playerAmount &gt; 2)
+    draw_text(room_width - mainMenuMarginH - 120, room_height * 4 / 6, "&lt;");
 </string>
           </argument>
         </arguments>
