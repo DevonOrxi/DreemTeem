@@ -12,7 +12,7 @@ switch playerId {
     var inst = instance_create(x + lengthdir_x(50,angleBase), y + lengthdir_y(50,angleBase), hitBox1);
     inst.hitId = 1;
     inst.playerHit = playerId;
-    inst.level = chargePunch3;
+    inst.level = chargeLevel;
     inst.image_angle = image_angle;
     inst.image_xscale = image_xscale;
     inst.image_yscale = image_yscale;

@@ -18,6 +18,9 @@ if !startedState {
     case playerState.CONNECT :
         enterConnect();
         break;
+    case playerState.BOUNCE :
+        enterBounce();
+        break;
     case playerState.PUNCH_TO_IDLE :
         break;
     case playerState.HURTING :

@@ -6,7 +6,7 @@
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
-  <maskName>&lt;undefined&gt;</maskName>
+  <maskName>mask</maskName>
   <events>
     <event eventtype="0" enumb="0">
       <action>
@@ -99,6 +99,10 @@ gotHit = false;
 hitLevel = 0;
 hitAngle = 0;
 
+//Getting Punched2 - Stun
+stun = false;
+bounce = false;
+
 //Getting Punched3 - Critical
 critical = false;
 stopCritDeath = true; //Player is not flying to death
@@ -157,10 +161,58 @@ punchTime = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Get punched
+            <string>///Get punched3
 hurting = false;
 critical = true;
 freeze = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>stun = false;
+gotHit = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>bounce = false;
+wallBounce = false;
 </string>
           </argument>
         </arguments>
@@ -328,6 +380,7 @@ draw_text(50, 140, "Connect: " + string(connect));
 draw_text(50, 160, "Punch Time: " + string(punchTime));
 draw_text(50, 180, "Angle: " + string(image_angle));
 draw_text(50, 200, "Hut Angle: " + string(hitAngle));
+draw_text(50, 220, "Bounce: " + string(bounce));
 }
 
 if playerId = 2
@@ -342,6 +395,8 @@ draw_text(550, 160, "Death: " + string(stopCritDeath));
 draw_text(550, 180, "hitY: " + string(hitY));
 draw_text(550, 200, "hitX: " + string(hitX));
 draw_text(550, 220, "Angle: " + string(image_angle));
+draw_text(550, 240, "Stun: " + string(stun));
+draw_text(550, 260, "Hit Level: " + string(hitLevel));
 }
 
 if instance_exists(hitBox1)

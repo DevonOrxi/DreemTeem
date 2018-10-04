@@ -15,10 +15,10 @@ joySlot = -1;
 //Charging
 chargePower = 0; //Amount to charge
 chargeInc = 0.2; //How much to charge per frame
-chargeLevel = 0; //Level of harge
-chargePunch1 = 5; //Charge for punch1
-chargePunch2 = 10; //Charge for punch2
-chargePunch3 = 15; //Charge for punch3
+chargeLevel = 0; //Level of charge
+chargePunch1 = 10; //Charge for punch1
+chargePunch2 = 20; //Charge for punch2
+chargePunch3 = 30; //Charge for punch3
 
 //Punching
 angle = 0; //Angle of attack
@@ -26,8 +26,9 @@ angleBase = 0;
 punchCancel = false;
 punchTime = 0; //Time in punching state
 punchLow = 1; //Amount by frame te reduce time punching
-freezeTime = 60;
+criticalTime = 60;
 connect = false;
+wallBounce = false;
 
 //Getting Hit
 gotHit = false;
@@ -38,6 +39,13 @@ hitY = 0;
 hitPosX = 0;
 hitPosY = 0;
 freeze = false;
+
+//Getting Punched2 - Stun
+stun = false;
+stunForce = 10;
+stunTime = 60;
+bounceForce = 5;
+bounce = false;
 
 //Getting Punched3 - Critical
 critical = false;

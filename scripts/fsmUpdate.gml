@@ -15,6 +15,9 @@ switch state {
     case playerState.PUNCHING :
         updatePunching();
         break;
+    case playerState.PUNCHING2 :
+        updatePunching2();
+        break;
     case playerState.PUNCHING3 :
         updatePunching3();
         break;
@@ -47,7 +50,13 @@ if instance_exists(hitBox1) {
             hitY = inst.image_yscale;
             hitPosX = inst.x;
             hitPosY = inst.y;
-            freeze = true;
+            hitLevel = inst.level;
+            
+            //Critical punch
+            if hitLevel = 3
+            {
+                freeze = true;
+            }
         }
     }
 }
@@ -55,38 +64,30 @@ if instance_exists(hitBox1) {
 //Death and respawn
 if y > (room_height + sprite_height) && alive = true {
     alive = false;
-    var inst = instance_create(x, room_height, deathEffect);
-    inst.image_angle = image_angle;
-    inst.image_xscale = image_xscale;
-    inst.image_yscale = image_yscale;
     alarm[8] = respawnTime;
+    var inst = instance_create(x, room_height, deathEffect);
+    inst.image_angle = 90;
 }
 
 if y < -50 && alive = true {
     alive = false;
-    var inst = instance_create(x, 0, deathEffect);
-    inst.image_angle = image_angle;
-    inst.image_xscale = image_xscale;
-    inst.image_yscale = image_yscale;
     alarm[8] = respawnTime;
+    var inst = instance_create(x, 0, deathEffect);
+    inst.image_angle = 270;
 }
 
 if x > (room_width + sprite_width/2) && alive = true {
     alive = false;
-    var inst = instance_create(room_width, y, deathEffect);
-    inst.image_angle = image_angle;
-    inst.image_xscale = image_xscale;
-    inst.image_yscale = image_yscale;
     alarm[8] = respawnTime;
+    var inst = instance_create(room_width, y, deathEffect);
+    inst.image_angle = 180;
 }
 
 if x < -50 && alive = true {
     alive = false;
-    var inst = instance_create(0, y, deathEffect);
-    inst.image_angle = image_angle;
-    inst.image_xscale = image_xscale;
-    inst.image_yscale = image_yscale;
     alarm[8] = respawnTime;
+    var inst = instance_create(0, y, deathEffect);
+    inst.image_angle = 0;
 }
 
 //Sprite

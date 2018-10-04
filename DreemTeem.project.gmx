@@ -48,6 +48,7 @@
         <sprite>sprites\charge2</sprite>
         <sprite>sprites\charge3</sprite>
       </sprites>
+      <sprite>sprites\mask</sprite>
     </sprites>
     <sprites name="Level">
       <sprite>sprites\floorMid</sprite>
@@ -62,6 +63,7 @@
     </sprites>
     <sprites name="Particles">
       <sprite>sprites\effectDeath</sprite>
+      <sprite>sprites\effectDeath2</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -92,6 +94,10 @@
           <script>scripts\conditionForStun.gml</script>
           <script>scripts\conditionForCriticalToFalling.gml</script>
           <script>scripts\conditionForChargingToFalling.gml</script>
+          <script>scripts\conditionForStunToFalling.gml</script>
+          <script>scripts\conditionForBounce.gml</script>
+          <script>scripts\conditionForDisbounce.gml</script>
+          <script>scripts\conditionForPunchToBounce.gml</script>
         </scripts>
       </scripts>
       <scripts name="StateBehaviour">
@@ -108,16 +114,19 @@
           <script>scripts\enterKnockback.gml</script>
           <script>scripts\enterStun.gml</script>
           <script>scripts\enterCritical.gml</script>
+          <script>scripts\enterBounce.gml</script>
         </scripts>
         <scripts name="Updates">
           <script>scripts\updateCharging.gml</script>
           <script>scripts\updatePunching.gml</script>
           <script>scripts\updatePunching3.gml</script>
+          <script>scripts\updatePunching2.gml</script>
           <script>scripts\updateFalling.gml</script>
           <script>scripts\updateIdle.gml</script>
           <script>scripts\updateLanding.gml</script>
           <script>scripts\updateConnect.gml</script>
           <script>scripts\updateHurting.gml</script>
+          <script>scripts\updateStun.gml</script>
         </scripts>
         <scripts name="Exits">
           <script>scripts\exitPunching.gml</script>

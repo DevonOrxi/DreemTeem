@@ -38,6 +38,7 @@ enum playerState {
     KNOCKBACK,
     STUN,
     CRITICAL,
+    BOUNCE,
     HURTING_TO_FALLING,
     FALLING,
     LANDING,
