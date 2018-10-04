@@ -77,3 +77,10 @@ vibeR = 0;
 alive = true;
 inv = false;
 falling = false;
+
+//Create UI
+if playerId = 1
+{
+    var inst = instance_create(350, 680, portraitUI);
+    inst.uiId = 1;    
+}
