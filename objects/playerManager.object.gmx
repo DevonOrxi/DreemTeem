@@ -53,7 +53,7 @@ global.respawnTime = 30; //Time from death until respawn
 global.invTime = 60; //Time being invinsible
 
 //Set players
-global.playerAmount = 1; //Amount of players that are going to play
+//global.playerAmount = 1; //Amount of players that are going to play
 playerSpawned = 0; //Amount of players already on screen
 global.playerId = 0; //Determines the player id
 alarm[0] = 30; //Start creating players

@@ -52,8 +52,14 @@
 
 var slot = global.playerJoy[0];
 
+
 anaRight = (gamepad_axis_value(slot, gp_axislh) &gt; global.joy_stick_threshold);
 anaLeft = (gamepad_axis_value(slot, gp_axislh) &lt; -global.joy_stick_threshold);
+joyR1P = gamepad_button_check_pressed(slot, gp_shoulderr);
+
+if (joyR1P) {
+    room_goto(punchTest);
+}
 
 if (canTap) {
     if (anaLeft &amp;&amp; global.playerAmount &gt; 2)
