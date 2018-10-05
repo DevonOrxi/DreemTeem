@@ -9,18 +9,32 @@ switch state {
         if (conditionForPunching()) { return playerState.PUNCHING; }
         if (conditionForPunching2()) { return playerState.PUNCHING2; }
         if (conditionForPunching3()) { return playerState.PUNCHING3; }
+        if (conditionForChargingToFalling()) { return playerState.FALLING; }
         break;
     case playerState.PUNCHING :
+        if (conditionForFalling()) { return playerState.FALLING; }
+        if (conditionForLanding()) { return playerState.LANDING; }
+        if (conditionForConnect()) { return playerState.CONNECT; }
+        if (conditionForChargingToFalling()) { return playerState.FALLING; }
         break;
     case playerState.PUNCHING2 :
+        if (conditionForFalling()) { return playerState.FALLING; }
+        if (conditionForLanding()) { return playerState.LANDING; }
+        if (conditionForConnect()) { return playerState.CONNECT; }
+        if (conditionForChargingToFalling()) { return playerState.FALLING; }
         break;
     case playerState.PUNCHING3 :
         if (conditionForFalling()) { return playerState.FALLING; }
         if (conditionForLanding()) { return playerState.LANDING; }
         if (conditionForConnect()) { return playerState.CONNECT; }
+        if (conditionForChargingToFalling()) { return playerState.FALLING; }
         break;
     case playerState.CONNECT :
+        if (conditionForBounce()) { return playerState.BOUNCE; }
         if (conditionForDisconnect()) { return playerState.FALLING; }
+        break;
+    case playerState.BOUNCE :
+        if (conditionForDisbounce()) { return playerState.FALLING; }
         break; 
      case playerState.HURTING :
         if (conditionForKnockback()) { return playerState.KNOCKBACK; }
@@ -29,6 +43,9 @@ switch state {
         break;
      case playerState.CRITICAL :
         if (conditionForCriticalToFalling()) { return playerState.FALLING; }
+        break;
+     case playerState.STUN :
+        if (conditionForStunToFalling()) { return playerState.FALLING; }
         break;
     case playerState.FALLING :
         if (conditionForLanding()) { return playerState.LANDING; }

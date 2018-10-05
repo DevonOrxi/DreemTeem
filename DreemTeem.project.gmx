@@ -3,7 +3,9 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <NewExtensions/>
+  <NewExtensions>
+    <extension index="0">extensions\Hue Shader</extension>
+  </NewExtensions>
   <sounds name="sound">
     <sound>sound\sound0_Critical_hit</sound>
     <sound>sound\sound1_Death_explosion</sound>
@@ -28,8 +30,9 @@
     <sprite>sprites\sprite1</sprite>
     <sprite>sprites\sBlock</sprite>
     <sprite>sprites\sBlockOW</sprite>
-    <sprite>sprites\hitBox</sprite>
     <sprites name="Player">
+      <sprite>sprites\mask</sprite>
+      <sprite>sprites\hitBox</sprite>
       <sprite>sprites\idle</sprite>
       <sprite>sprites\fall</sprite>
       <sprite>sprites\land</sprite>
@@ -63,6 +66,9 @@
     <sprites name="Particles">
       <sprite>sprites\effectDeath</sprite>
     </sprites>
+    <sprites name="UI">
+      <sprite>sprites\portrait</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg</background>
@@ -91,6 +97,11 @@
           <script>scripts\conditionForCritical.gml</script>
           <script>scripts\conditionForStun.gml</script>
           <script>scripts\conditionForCriticalToFalling.gml</script>
+          <script>scripts\conditionForChargingToFalling.gml</script>
+          <script>scripts\conditionForStunToFalling.gml</script>
+          <script>scripts\conditionForBounce.gml</script>
+          <script>scripts\conditionForDisbounce.gml</script>
+          <script>scripts\conditionForPunchToBounce.gml</script>
         </scripts>
       </scripts>
       <scripts name="StateBehaviour">
@@ -107,16 +118,19 @@
           <script>scripts\enterKnockback.gml</script>
           <script>scripts\enterStun.gml</script>
           <script>scripts\enterCritical.gml</script>
+          <script>scripts\enterBounce.gml</script>
         </scripts>
         <scripts name="Updates">
           <script>scripts\updateCharging.gml</script>
           <script>scripts\updatePunching.gml</script>
           <script>scripts\updatePunching3.gml</script>
+          <script>scripts\updatePunching2.gml</script>
           <script>scripts\updateFalling.gml</script>
           <script>scripts\updateIdle.gml</script>
           <script>scripts\updateLanding.gml</script>
           <script>scripts\updateConnect.gml</script>
           <script>scripts\updateHurting.gml</script>
+          <script>scripts\updateStun.gml</script>
         </scripts>
         <scripts name="Exits">
           <script>scripts\exitPunching.gml</script>
@@ -159,6 +173,7 @@
       <object>objects\oBlockOW</object>
       <object>objects\stage</object>
       <object>objects\hitBox1</object>
+      <object>objects\portraitUI</object>
     </objects>
     <objects name="Managers">
       <object>objects\joyManager</object>

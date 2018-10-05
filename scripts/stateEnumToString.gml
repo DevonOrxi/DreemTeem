@@ -41,6 +41,9 @@ switch argument0 {
     case playerState.CONNECT :
         return "CONNECT";
         break;
+    case playerState.BOUNCE :
+        return "BOUNCE";
+        break;
     case playerState.LAND_TO_IDLE :
         return "LAND_TO_IDLE";
         break;

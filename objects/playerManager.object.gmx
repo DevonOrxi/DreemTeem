@@ -38,12 +38,15 @@ enum playerState {
     KNOCKBACK,
     STUN,
     CRITICAL,
+    BOUNCE,
     HURTING_TO_FALLING,
     FALLING,
     LANDING,
     LAND_TO_IDLE
 }
 
+//Test
+global.angleTest = 0;
 //Physics things
 global.playerGravity = 0.55;
 global.playerFriction = 0.55;
@@ -53,7 +56,7 @@ global.respawnTime = 30; //Time from death until respawn
 global.invTime = 60; //Time being invinsible
 
 //Set players
-global.playerAmount = 1; //Amount of players that are going to play
+global.playerAmount = 2; //Amount of players that are going to play
 playerSpawned = 0; //Amount of players already on screen
 global.playerId = 0; //Determines the player id
 alarm[0] = 30; //Start creating players

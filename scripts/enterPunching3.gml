@@ -9,10 +9,11 @@ chargePower = 0;
 //Create HitBox
 switch playerId {
     case 1:
-    var inst = instance_create(x, y, hitBox1);
+    var inst = instance_create(x + lengthdir_x(50,angleBase), y + lengthdir_y(50,angleBase), hitBox1);
     inst.hitId = 1;
     inst.playerHit = playerId;
-    inst.level = chargePunch3;
+    inst.level = chargeLevel;
+    inst.image_angle = image_angle;
     inst.image_xscale = image_xscale;
     inst.image_yscale = image_yscale;
     break;
@@ -21,6 +22,7 @@ switch playerId {
     inst.hitId = 2;
     inst.playerHit = playerId;
     inst.level = chargePunch3;
+    inst.image_angle = image_angle;
     inst.image_xscale = image_xscale;
     inst.image_yscale = image_yscale;
     break;
@@ -29,6 +31,7 @@ switch playerId {
     inst.hitId = 3;
     inst.playerHit = playerId;
     inst.level = chargePunch3;
+    inst.image_angle = image_angle;
     inst.image_xscale = image_xscale;
     inst.image_yscale = image_yscale;
     break;
@@ -37,6 +40,7 @@ switch playerId {
     inst.hitId = 4;
     inst.playerHit = playerId;
     inst.level = chargePunch3;
+    inst.image_angle = image_angle;
     inst.image_xscale = image_xscale;
     inst.image_yscale = image_yscale;
     break;

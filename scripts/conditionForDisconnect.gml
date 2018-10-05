@@ -1,1 +1,1 @@
-return connect = false;
+return bounce = false && connect = false;

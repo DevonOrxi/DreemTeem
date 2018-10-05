@@ -1,7 +1,7 @@
 startedState = true;
 
 //Enable Movement
-if connect = false && hurting = false && y > -50{
+if connect = false && freeze = false && y > -50{
     move_movement_entity(); //Refreshes position every step
 }
 
@@ -14,6 +14,9 @@ switch state {
         break;
     case playerState.PUNCHING :
         updatePunching();
+        break;
+    case playerState.PUNCHING2 :
+        updatePunching2();
         break;
     case playerState.PUNCHING3 :
         updatePunching3();
@@ -43,8 +46,17 @@ if instance_exists(hitBox1) {
             gotHit = true;
             inst.playerHit = playerId;
             hitAngle = inst.angle;
-            hitX = inst.image_xscale;
+            hitX = -inst.image_xscale;
             hitY = inst.image_yscale;
+            hitPosX = inst.x;
+            hitPosY = inst.y;
+            hitLevel = inst.level;
+            
+            //Critical punch
+            if hitLevel = 3
+            {
+                freeze = true;
+            }
         }
     }
 }
@@ -52,26 +64,30 @@ if instance_exists(hitBox1) {
 //Death and respawn
 if y > (room_height + sprite_height) && alive = true {
     alive = false;
-    instance_create(x, room_height, deathEffect);
     alarm[8] = respawnTime;
+    var inst = instance_create(x, room_height, deathEffect);
+    inst.image_angle = 90;
 }
 
 if y < -50 && alive = true {
     alive = false;
-    instance_create(x, 0, deathEffect);
     alarm[8] = respawnTime;
+    var inst = instance_create(x, 0, deathEffect);
+    inst.image_angle = 270;
 }
 
 if x > (room_width + sprite_width/2) && alive = true {
     alive = false;
-    instance_create(room_width, y, deathEffect);
     alarm[8] = respawnTime;
+    var inst = instance_create(room_width, y, deathEffect);
+    inst.image_angle = 180;
 }
 
 if x < -50 && alive = true {
     alive = false;
-    instance_create(0, y, deathEffect);
     alarm[8] = respawnTime;
+    var inst = instance_create(0, y, deathEffect);
+    inst.image_angle = 0;
 }
 
 //Sprite
@@ -93,3 +109,6 @@ sprite_index != contact3
     }
     }
 }
+
+//image_blend = make_colour_hsv(180, -75, 120);
+

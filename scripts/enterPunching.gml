@@ -1,50 +1,59 @@
-//Punch
-add_movement_direction_acceleration(angle, punchLevelForce);
-angleBase = angle;
-punchTime = punchLevelForce; //Make punching as long as the time the player charged
-punchLevelForce = 0;
-force = 0;
-charging = false;
-punching = true;
+//Punch to kill
+add_movement_direction_acceleration(angle, chargePunch3);
 
-//Create HitBox villero
+//Change variables
+punchTime = chargePunch3;
+angleBase = angle;
+chargePower = 0;
+
+//Create HitBox
 switch playerId {
     case 1:
-    var inst = instance_create(x, y, hitBox1);
-    inst.level = punchLevel;
+    var inst = instance_create(x + lengthdir_x(50,angleBase), y + lengthdir_y(50,angleBase), hitBox1);
+    inst.hitId = 1;
+    inst.playerHit = playerId;
+    inst.level = chargePunch3;
+    inst.image_angle = image_angle;
+    inst.image_xscale = image_xscale;
+    inst.image_yscale = image_yscale;
     break;
     case 2:
-    var inst = instance_create(x, y, hitBox2);
-    inst.level = punchLevel;
+    var inst = instance_create(x, y, hitBox1);
+    inst.hitId = 2;
+    inst.playerHit = playerId;
+    inst.level = chargePunch3;
+    inst.image_angle = image_angle;
+    inst.image_xscale = image_xscale;
+    inst.image_yscale = image_yscale;
     break;
     case 3:
-    var inst = instance_create(x, y, hitBox3);
-    inst.level = punchLevel;
+    var inst = instance_create(x, y, hitBox1);
+    inst.hitId = 3;
+    inst.playerHit = playerId;
+    inst.level = chargePunch3;
+    inst.image_angle = image_angle;
+    inst.image_xscale = image_xscale;
+    inst.image_yscale = image_yscale;
     break;
     case 4:
-    var inst = instance_create(x, y, hitBox4);
-    inst.level = punchLevel;
+    var inst = instance_create(x, y, hitBox1);
+    inst.hitId = 4;
+    inst.playerHit = playerId;
+    inst.level = chargePunch3;
+    inst.image_angle = image_angle;
+    inst.image_xscale = image_xscale;
+    inst.image_yscale = image_yscale;
     break;
-}
-
-if playerId = 4 {
-    instance_create(x, y, hitBox4);
 }
 
 //Sprite
 image_index = 0;
+sprite_index = punch3;
 
-switch punchLevel{
-    case 1:
-    sprite_index = punch;
-    break;
-    case 2:
-    sprite_index = punch2;
-    break;
-    case 3:
-    sprite_index = punch3;
-    break;
+if image_index > (image_number -2) {
+    image_index = image_number -1;
 }
 
+//Sound
 audio_stop_sound(sound13_Charging);
 audio_play_sound(sound12_Whoosh, 80, false);

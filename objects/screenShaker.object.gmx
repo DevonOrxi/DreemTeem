@@ -25,7 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Time of shake
+            <string>//Amount of Shake
+shakeX = 0;
+shakeY = 0;
+
+//Time of shake
 alarm[0] = 30;
 </string>
           </argument>
@@ -74,8 +78,8 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>view_xview += random_range(-3,3);
-view_yview += random_range(-3,3);
+            <string>view_xview += random_range(-shakeX,shakeX);
+view_yview += random_range(-shakeY,shakeY);
 
 </string>
           </argument>
