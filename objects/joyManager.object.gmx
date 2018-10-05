@@ -8,35 +8,6 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>joySlot = 0;
-playerJoy[0] = -1;
-playerJoy[1] = -1;
-playerJoy[2] = -1;
-playerJoy[3] = -1;
-
-global.joy_stick_threshold = 0.5;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -54,55 +25,7 @@ global.joy_stick_threshold = 0.5;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*var e = 0;
-for (var i = 0; i &lt; 8; i++;){
-    if gamepad_is_connected(i){
-        if playerJoy[e] = -1 {
-            playerJoy[e] = i;
-            e++;
-        }
-    }
-}*/
-
-
-// For each player...
-var p = 0;
-while (p &lt; global.playerAmount) {
-    if playerJoy[p] == -1 {
-        var found = false;
-        var joy_players = 0;
-        var joy_index = 0;
-        var joy_counter = 0;
-        
-        while (!found &amp;&amp; joy_index &lt; 8) {
-            var assigned = false;
-            
-            if (gamepad_is_connected(joy_index)) {
-                
-                while (!assigned &amp;&amp; joy_players &lt; global.playerAmount) {
-                    if (joy_players != p &amp;&amp; joy_index == playerJoy[joy_players])
-                        assigned = true;
-                    joy_players++;
-                }
-                
-                if !assigned {
-                    playerJoy[p] = joy_index;
-                    found = true;
-                }
-            }
-            
-            
-            joy_index++;
-        }
-        
-        p++;
-    } else {
-        if !gamepad_is_connected(playerJoy[p])
-            playerJoy[p] = -1;
-        else
-            p++;
-    }
-}
+            <string>joyBind();
     
 if keyboard_check_pressed(ord('R'))
 {

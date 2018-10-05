@@ -3,6 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
+  <datafiles number="1" name="datafiles"/>
   <NewExtensions>
     <extension index="0">extensions\Hue Shader</extension>
   </NewExtensions>
@@ -23,6 +24,7 @@
     <sound>sound\sound13_Charging</sound>
     <sound>sound\sound14_Fully_charged</sound>
     <sound>sound\sound15_music</sound>
+    <sound>sound\sound16_Tema_menu</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\char1</sprite>
@@ -153,7 +155,7 @@
     </scripts>
     <scripts name="Joysticks">
       <script>scripts\joySupport.gml</script>
-      <script>scripts\joyDebug.gml</script>
+      <script>scripts\joyBind.gml</script>
     </scripts>
     <scripts name="Misc">
       <script>scripts\stateEnumToString.gml</script>
@@ -164,7 +166,8 @@
     </scripts>
   </scripts>
   <fonts name="fonts">
-    <font>fonts\font0</font>
+    <font>fonts\fGrapesoda64</font>
+    <font>fonts\fGrapesoda128</font>
   </fonts>
   <objects name="objects">
     <objects name="Entities">
@@ -177,6 +180,7 @@
     </objects>
     <objects name="Managers">
       <object>objects\joyManager</object>
+      <object>objects\mainMenuManager</object>
       <object>objects\playerManager</object>
       <object>objects\screenShaker</object>
     </objects>
@@ -200,6 +204,7 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\mainMenu</room>
     <room>rooms\punchTest</room>
   </rooms>
   <help>

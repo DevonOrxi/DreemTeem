@@ -1,5 +1,5 @@
 //Define joyslot depending on playerId
-joySlot = joyManager.playerJoy[playerId - 1];
+joySlot = global.playerJoy[playerId - 1];
 
 //Analog
 anaRight = (gamepad_axis_value(joySlot, gp_axislh) > global.joy_stick_threshold);
