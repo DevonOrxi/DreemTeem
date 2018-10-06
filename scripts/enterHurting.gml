@@ -5,15 +5,17 @@ image_angle = hitAngle;
 sprite_index = hurtSprite;
 image_xscale = hitX;
 image_yscale = hitY;
-if !isGrounded()
-{
+
+//if !isGrounded()
+//{
     x = hitPosX;
     y = hitPosY;
-}
+//}
 
 switch hitLevel {
     case 1:
-    
+    knockback = true;
+    hurting = false;
     break;
     case 2:
     stun = true;

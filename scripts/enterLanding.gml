@@ -1,6 +1,8 @@
 //Sprite
 image_index = 0;
 image_speed = 0.1;
+image_angle = 0;
+image_yscale = 1;
 sprite_index = landSprite;
 var vineNum = round(random_range(0,2));
 

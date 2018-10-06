@@ -5,6 +5,7 @@ image_yscale = 1;
 image_index = 0;
 image_speed = 0.15;
 
+chargeLevel = 0;
 punchLevel = 0;
 
 //Condition

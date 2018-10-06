@@ -2,6 +2,8 @@
 if chargePower < chargePunch3 {
     chargePower += chargeInc;
 }
+chargeGravity = 0.40;
+chargeAirRes = 0.20;
 
 //Defining Level
 if chargePower < chargePunch1 {

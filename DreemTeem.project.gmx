@@ -122,10 +122,10 @@
           <script>scripts\conditionForCritical.gml</script>
           <script>scripts\conditionForStun.gml</script>
           <script>scripts\conditionForCriticalToFalling.gml</script>
-          <script>scripts\conditionForChargingToFalling.gml</script>
           <script>scripts\conditionForStunToFalling.gml</script>
           <script>scripts\conditionForBounce.gml</script>
           <script>scripts\conditionForDisbounce.gml</script>
+          <script>scripts\conditionForChargingToFalling.gml</script>
           <script>scripts\conditionForPunchToBounce.gml</script>
         </scripts>
       </scripts>

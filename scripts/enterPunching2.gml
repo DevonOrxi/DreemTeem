@@ -4,6 +4,8 @@ add_movement_direction_acceleration(angle, chargePunch2);
 //Change variables
 punchTime = chargePunch2;
 angleBase = angle;
+chargeGravity = 0;
+chargeAirRes = 0;
 
 //Create HitBox
 switch playerId {

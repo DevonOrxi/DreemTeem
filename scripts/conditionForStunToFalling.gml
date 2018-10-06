@@ -1,1 +1,1 @@
-return stun = false;
+return stun = false && knockback = false;

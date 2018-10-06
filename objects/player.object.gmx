@@ -86,6 +86,8 @@ gamepad_set_vibration(joySlot, 0, 0);
 //Reset everything
 chargePower = 0; //Amount to charge
 chargeLevel = 0; //Level of harge
+chargeGravity = 0;
+chargeAirRes = 0;
 
 //Punching
 angle = 0; //Angle of attack
@@ -188,6 +190,7 @@ freeze = false;
           <argument>
             <kind>1</kind>
             <string>stun = false;
+knockback = false;
 gotHit = false;
 </string>
           </argument>
@@ -365,10 +368,11 @@ fsmUpdate();
           <argument>
             <kind>1</kind>
             <string>draw_self();
-/*
+
 ///DEBUG
 draw_set_colour(c_black);
 draw_set_font(font2);
+draw_set_halign(fa_left);
 //Punch debug
 if playerId = 1
 {
@@ -404,7 +408,8 @@ if instance_exists(hitBox1)
 {
     draw_text(50, 240, "Angle: " + string(hitBox1.angle));
     draw_text(50, 260, "Hitbox Id: " + string(hitBox1.hitId));
-    draw_text(50, 280, "PlayerHit: " + string(hitBox1.playerHit))
+    draw_text(50, 280, "PlayerHit: " + string(hitBox1.playerHit));
+    //draw_text(50, 280, "PlayerHit: " + string(hitBox1.playerHit))
 }
 
 </string>

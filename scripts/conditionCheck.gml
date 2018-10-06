@@ -24,7 +24,6 @@ switch state {
         if (conditionForChargingToFalling()) { return playerState.FALLING; }
         break;
     case playerState.PUNCHING3 :
-        if (conditionForFalling()) { return playerState.FALLING; }
         if (conditionForLanding()) { return playerState.LANDING; }
         if (conditionForConnect()) { return playerState.CONNECT; }
         if (conditionForChargingToFalling()) { return playerState.FALLING; }
@@ -47,6 +46,9 @@ switch state {
      case playerState.STUN :
         if (conditionForStunToFalling()) { return playerState.FALLING; }
         break;
+     case playerState.KNOCKBACK :
+        if (conditionForStunToFalling()) { return playerState.FALLING; }
+        break;
     case playerState.FALLING :
         if (conditionForLanding()) { return playerState.LANDING; }
         if (conditionForCharging()) { return playerState.CHARGING; }
@@ -55,6 +57,7 @@ switch state {
     case playerState.LANDING :
         if (conditionForLandingToIdle()) { return playerState.IDLE; }
         if (conditionForHurting()) { return playerState.HURTING; }
+        if (conditionForFalling()) { return playerState.FALLING; }
         break;
     default :
         break;

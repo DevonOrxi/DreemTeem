@@ -82,7 +82,7 @@ y += vspd;
 
 /// Apply gravity
 if (!place_meeting(x, y+1, collision_object)) {
-    vsp[0] += grav;
+    vsp[0] += grav - chargeGravity;
 }
 
 // Apply friction
@@ -96,11 +96,11 @@ if (place_meeting(x, y+1, collision_object) || place_meeting(x, y+1, oneway_obje
 
 // Air resistance
 if (horizontal_move_input == false) {
-    hsp[0] = approach(hsp[0], 0, air_res);
+    hsp[0] = approach(hsp[0], 0, air_res + chargeAirRes);
 }
 if (vertical_move_input == false && grav == 0) {
-    vsp[0] = approach(vsp[0], 0, air_res);
+    vsp[0] = approach(vsp[0], 0, air_res + chargeAirRes);
 }
 
-hsp[1] = approach(hsp[1], 0, air_res);
-vsp[1] = approach(vsp[1], 0, air_res);
+hsp[1] = approach(hsp[1], 0, air_res + chargeAirRes);
+vsp[1] = approach(vsp[1], 0, air_res + chargeAirRes);

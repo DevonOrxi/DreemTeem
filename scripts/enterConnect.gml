@@ -1,6 +1,9 @@
 switch chargeLevel{
     case 1:
     sprite_index = contactSprite;
+    punchTime = 0;
+    connect = false;
+    bounce = true;
     break;
     case 2:
     sprite_index = contact2Sprite;

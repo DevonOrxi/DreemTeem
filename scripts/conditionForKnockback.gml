@@ -1,1 +1,1 @@
-return false;
+return knockback = true && hurting = false;

@@ -59,13 +59,20 @@ global.invTime = 60; //Time being invinsible
 //global.playerAmount = 1; //Amount of players that are going to play
 playerSpawned = 0; //Amount of players already on screen
 global.playerId = 0; //Determines the player id
+global.playersAlive = 0;
+global.player1 = false;
+global.player2 = false;
 alarm[0] = 30; //Start creating players
 
 //Players UI
 global.lives1 = 3;
 global.lives2 = 3;
+global.lives3 = 3;
+global.lives4 = 3;
 global.chargeLevel1 = 0;
 global.chargeLevel2 = 0;
+global.chargeLevel3 = 0;
+global.chargeLevel4 = 0;
 
 spawnX[0] = (room_width/2) +125;
 spawnX[1] = (room_width/2) -125;
@@ -97,6 +104,7 @@ spawnY[2] = room_height/2;
             <string>///Spawn Players
 instance_create(spawnX[playerSpawned], spawnY[0], player);
 playerSpawned += 1;
+global.playersAlive += 1;
 
 //Check if all players have spawned, if not, keep spawning
 if playerSpawned &lt; global.playerAmount {

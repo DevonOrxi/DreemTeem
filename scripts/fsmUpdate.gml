@@ -108,5 +108,24 @@ if playerId = 2 {
 //Sprite
 spriteManager();
 
-//image_blend = make_colour_hsv(180, -75, 120);
+//Die
+if life = 0
+{
+    var inst = instance_place(x, y, hitBox1);
+    with inst
+    {
+        instance_destroy();
+    }
+    global.playersAlive -= 1;
+    if playerId = 1
+    {
+        global.player1 = false;
+    }
+    
+    if playerId = 2
+    {
+        global.player2 = false;
+    }
+    instance_destroy();
+}
 

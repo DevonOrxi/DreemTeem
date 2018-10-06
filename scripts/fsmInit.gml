@@ -19,6 +19,8 @@ chargeLevel = 0; //Level of charge
 chargePunch1 = 10; //Charge for punch1
 chargePunch2 = 20; //Charge for punch2
 chargePunch3 = 30; //Charge for punch3
+chargeGravity = 0;
+chargeAirRes = 0;
 
 //Punching
 angle = 0; //Angle of attack
@@ -40,9 +42,13 @@ hitPosX = 0;
 hitPosY = 0;
 freeze = false;
 
+//Getting Punched - Knockback
+knockback = false;
+knockForce = 5;
+
 //Getting Punched2 - Stun
 stun = false;
-stunForce = 10;
+stunForce = 15;
 stunTime = 60;
 bounceForce = 5;
 bounce = false;
@@ -82,6 +88,7 @@ falling = false;
 life = 3;
 if playerId = 1
 {
+    global.player1 = true;
     var inst = instance_create(350, 680, portraitUI);
     inst.uiId = 1;
     var inst2 = instance_create(400, 620, livesUI);
@@ -90,6 +97,7 @@ if playerId = 1
 
 if playerId = 2
 {
+    global.player2 = true;
     var inst = instance_create(550, 680, portraitUI);
     inst.uiId = 2;
     var inst2 = instance_create(600, 620, livesUI);

@@ -1,10 +1,11 @@
 //Punch to kill
-add_movement_direction_acceleration(angle, chargePunch3);
+add_movement_direction_acceleration(angle, chargePunch1);
 
 //Change variables
-punchTime = chargePunch3;
+punchTime = chargePunch1;
 angleBase = angle;
-chargePower = 0;
+chargeGravity = 0;
+chargeAirRes = 0;
 
 //Create HitBox
 switch playerId {
@@ -12,7 +13,7 @@ switch playerId {
     var inst = instance_create(x + lengthdir_x(50,angleBase), y + lengthdir_y(50,angleBase), hitBox1);
     inst.hitId = 1;
     inst.playerHit = playerId;
-    inst.level = chargePunch3;
+    inst.level = chargeLevel;
     inst.image_angle = image_angle;
     inst.image_xscale = image_xscale;
     inst.image_yscale = image_yscale;
@@ -21,7 +22,7 @@ switch playerId {
     var inst = instance_create(x, y, hitBox1);
     inst.hitId = 2;
     inst.playerHit = playerId;
-    inst.level = chargePunch3;
+    inst.level = chargePunch1;
     inst.image_angle = image_angle;
     inst.image_xscale = image_xscale;
     inst.image_yscale = image_yscale;
@@ -30,7 +31,7 @@ switch playerId {
     var inst = instance_create(x, y, hitBox1);
     inst.hitId = 3;
     inst.playerHit = playerId;
-    inst.level = chargePunch3;
+    inst.level = chargePunch1;
     inst.image_angle = image_angle;
     inst.image_xscale = image_xscale;
     inst.image_yscale = image_yscale;
@@ -39,16 +40,18 @@ switch playerId {
     var inst = instance_create(x, y, hitBox1);
     inst.hitId = 4;
     inst.playerHit = playerId;
-    inst.level = chargePunch3;
+    inst.level = chargePunch1;
     inst.image_angle = image_angle;
     inst.image_xscale = image_xscale;
     inst.image_yscale = image_yscale;
     break;
 }
 
+chargePower = 0;
+
 //Sprite
 image_index = 0;
-sprite_index = punch3Sprite;
+sprite_index = punchSprite;
 
 if image_index > (image_number -2) {
     image_index = image_number -1;
