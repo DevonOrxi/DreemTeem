@@ -61,6 +61,12 @@ playerSpawned = 0; //Amount of players already on screen
 global.playerId = 0; //Determines the player id
 alarm[0] = 30; //Start creating players
 
+//Players UI
+global.lives1 = 3;
+global.lives2 = 3;
+global.chargeLevel1 = 0;
+global.chargeLevel2 = 0;
+
 spawnX[0] = (room_width/2) +125;
 spawnX[1] = (room_width/2) -125;
 spawnY[0] = room_height/2;
@@ -97,30 +103,6 @@ if playerSpawned &lt; global.playerAmount {
     alarm[0] = 30;
 }
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>//DEBUG
-draw_text(x, y, "PlayerId - " + string(global.playerId));
 </string>
           </argument>
         </arguments>

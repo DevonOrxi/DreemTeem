@@ -26,7 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>uiId = 0;
-
+chargeState = 0;
+life = 0;
 
 </string>
           </argument>
@@ -52,8 +53,19 @@
             <kind>1</kind>
             <string>if uiId = 1
 {
+    life = global.lives1;
+    chargeState = global.chargeLevel1;
     sprite_index = portrait;
 }
+
+if uiId = 2
+{
+    life = global.lives2;
+    chargeState = global.chargeLevel2;
+    sprite_index = portrait2;
+}
+
+image_index = +chargeState;
 
 image_speed = 0;
 </string>

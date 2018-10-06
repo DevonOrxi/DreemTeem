@@ -1,16 +1,16 @@
 switch chargeLevel{
     case 1:
-    sprite_index = contact;
+    sprite_index = contactSprite;
     break;
     case 2:
-    sprite_index = contact2;
+    sprite_index = contact2Sprite;
     punchTime = 0;
     connect = false;
     bounce = true;
     break;
     case 3:
     alarm[7] = criticalTime;
-    sprite_index = contact3;
+    sprite_index = contact3Sprite;
     break;
 }
 

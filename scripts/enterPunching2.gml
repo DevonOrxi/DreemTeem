@@ -49,7 +49,7 @@ chargePower = 0;
 
 //Sprite
 image_index = 0;
-sprite_index = punch2;
+sprite_index = punch2Sprite;
 
 if image_index > (image_number -2) {
     image_index = image_number -1;

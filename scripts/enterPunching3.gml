@@ -48,7 +48,7 @@ switch playerId {
 
 //Sprite
 image_index = 0;
-sprite_index = punch3;
+sprite_index = punch3Sprite;
 
 if image_index > (image_number -2) {
     image_index = image_number -1;

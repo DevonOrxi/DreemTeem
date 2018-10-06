@@ -2,7 +2,7 @@
 image_index = 0;
 image_speed = 0.2;
 image_angle = hitAngle;
-sprite_index = hurt;
+sprite_index = hurtSprite;
 image_xscale = hitX;
 image_yscale = hitY;
 if !isGrounded()

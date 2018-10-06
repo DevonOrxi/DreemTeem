@@ -37,15 +37,15 @@ image_speed = 0.2;
 
 if chargeLevel < 3
 {
-    sprite_index = charge;
+    sprite_index = chargeSprite;
 }
 
-if chargeLevel = 3 && sprite_index != charge3 && sprite_index != charge2 {
+if chargeLevel = 3 && sprite_index != charge3Sprite && sprite_index != charge2Sprite {
     image_index = 0;
-    sprite_index = charge2;
+    sprite_index = charge2Sprite;
 }
 
-if sprite_index = charge2 && image_index > (image_number - 1) && sprite_index != charge3 {
+if sprite_index = charge2Sprite && image_index > (image_number - 1) && sprite_index != charge3Sprite {
     image_index = 0;
-    sprite_index = charge3;
+    sprite_index = charge3Sprite;
 }

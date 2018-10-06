@@ -32,9 +32,29 @@
     <sprite>sprites\sprite1</sprite>
     <sprite>sprites\sBlock</sprite>
     <sprite>sprites\sBlockOW</sprite>
+    <sprite>sprites\hitBox</sprite>
+    <sprite>sprites\mask</sprite>
+    <sprites name="Player2">
+      <sprite>sprites\idleP2</sprite>
+      <sprite>sprites\fallP2</sprite>
+      <sprite>sprites\hurtP2</sprite>
+      <sprite>sprites\landP2</sprite>
+      <sprites name="Punch2">
+        <sprite>sprites\punchP2</sprite>
+        <sprite>sprites\punch2P2</sprite>
+        <sprite>sprites\punch3P2</sprite>
+        <sprite>sprites\contact3P2</sprite>
+        <sprite>sprites\contact2P2</sprite>
+        <sprite>sprites\contactP2</sprite>
+      </sprites>
+      <sprites name="Charge2">
+        <sprite>sprites\preChargeP2</sprite>
+        <sprite>sprites\chargeP2</sprite>
+        <sprite>sprites\charge2P2</sprite>
+        <sprite>sprites\charge3P2</sprite>
+      </sprites>
+    </sprites>
     <sprites name="Player">
-      <sprite>sprites\mask</sprite>
-      <sprite>sprites\hitBox</sprite>
       <sprite>sprites\idle</sprite>
       <sprite>sprites\fall</sprite>
       <sprite>sprites\land</sprite>
@@ -70,6 +90,9 @@
     </sprites>
     <sprites name="UI">
       <sprite>sprites\portrait</sprite>
+      <sprite>sprites\portrait2</sprite>
+      <sprite>sprites\life1</sprite>
+      <sprite>sprites\life2</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -160,14 +183,13 @@
     <scripts name="Misc">
       <script>scripts\stateEnumToString.gml</script>
       <script>scripts\isGrounded.gml</script>
-    </scripts>
-    <scripts name="Player Actions">
-      <script>scripts\borrador.gml</script>
+      <script>scripts\spriteManager.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fGrapesoda64</font>
     <font>fonts\fGrapesoda128</font>
+    <font>fonts\font2</font>
   </fonts>
   <objects name="objects">
     <objects name="Entities">
@@ -177,6 +199,7 @@
       <object>objects\stage</object>
       <object>objects\hitBox1</object>
       <object>objects\portraitUI</object>
+      <object>objects\livesUI</object>
     </objects>
     <objects name="Managers">
       <object>objects\joyManager</object>

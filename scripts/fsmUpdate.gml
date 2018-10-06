@@ -67,6 +67,7 @@ if y > (room_height + sprite_height) && alive = true {
     alarm[8] = respawnTime;
     var inst = instance_create(x, room_height, deathEffect);
     inst.image_angle = 90;
+    life -= 1;
 }
 
 if y < -50 && alive = true {
@@ -74,6 +75,7 @@ if y < -50 && alive = true {
     alarm[8] = respawnTime;
     var inst = instance_create(x, 0, deathEffect);
     inst.image_angle = 270;
+    life -= 1;
 }
 
 if x > (room_width + sprite_width/2) && alive = true {
@@ -81,6 +83,7 @@ if x > (room_width + sprite_width/2) && alive = true {
     alarm[8] = respawnTime;
     var inst = instance_create(room_width, y, deathEffect);
     inst.image_angle = 180;
+    life -= 1;
 }
 
 if x < -50 && alive = true {
@@ -88,27 +91,22 @@ if x < -50 && alive = true {
     alarm[8] = respawnTime;
     var inst = instance_create(0, y, deathEffect);
     inst.image_angle = 0;
+    life -= 1;
+}
+
+//UI
+if playerId = 1 {
+    global.chargeLevel1 = chargeLevel;
+    global.lives1 = life;
+}
+
+if playerId = 2 {
+    global.chargeLevel2 = chargeLevel;
+    global.lives2 = life;
 }
 
 //Sprite
-if
-sprite_index != punch &&
-sprite_index != punch2 &&
-sprite_index != punch3 &&
-sprite_index != contact &&
-sprite_index != contact2 &&
-sprite_index != contact3
-{
-    if gotHit = false
-    {
-    if angle < 270 && angle > 90 {
-        image_xscale = -1;
-    }
-    else {
-        image_xscale = 1;
-    }
-    }
-}
+spriteManager();
 
 //image_blend = make_colour_hsv(180, -75, 120);
 

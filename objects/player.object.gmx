@@ -365,9 +365,10 @@ fsmUpdate();
           <argument>
             <kind>1</kind>
             <string>draw_self();
-
+/*
 ///DEBUG
 draw_set_colour(c_black);
+draw_set_font(font2);
 //Punch debug
 if playerId = 1
 {

@@ -1,5 +1,5 @@
 //Sprite
-sprite_index = fall;
+sprite_index = fallSprite;
 image_angle = 0;
 image_yscale = 1;
 image_index = 0;

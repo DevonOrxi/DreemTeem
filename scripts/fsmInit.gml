@@ -79,8 +79,19 @@ inv = false;
 falling = false;
 
 //Create UI
+life = 3;
 if playerId = 1
 {
     var inst = instance_create(350, 680, portraitUI);
-    inst.uiId = 1;    
+    inst.uiId = 1;
+    var inst2 = instance_create(400, 620, livesUI);
+    inst2.uiId = 1;  
+}
+
+if playerId = 2
+{
+    var inst = instance_create(550, 680, portraitUI);
+    inst.uiId = 2;
+    var inst2 = instance_create(600, 620, livesUI);
+    inst2.uiId = 2;  
 }

@@ -1,7 +1,7 @@
 //Sprite
 image_index = 0;
 image_speed = 0.1;
-sprite_index = land;
+sprite_index = landSprite;
 var vineNum = round(random_range(0,2));
 
 audio_play_sound(sound5_landing, 80, false);
