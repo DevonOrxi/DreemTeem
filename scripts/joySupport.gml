@@ -12,6 +12,11 @@ joyR1 = gamepad_button_check(joySlot,gp_shoulderr);
 joyR1P = gamepad_button_check_pressed(joySlot,gp_shoulderr);
 joyR1R = gamepad_button_check_released(joySlot,gp_shoulderr);
 
+//L1
+joyL1 = gamepad_button_check(joySlot,gp_shoulderl);
+joyL1P = gamepad_button_check_pressed(joySlot,gp_shoulderl);
+joyL1R = gamepad_button_check_released(joySlot,gp_shoulderl);
+
 //R2
 joyR2 = gamepad_button_check(joySlot,gp_shoulderrb);
 joyR2P = gamepad_button_check_pressed(joySlot,gp_shoulderrb);
@@ -29,4 +34,18 @@ if  gamepad_axis_value(joySlot,gp_axisrh) > global.joy_stick_threshold or
     gamepad_axis_value(joySlot,gp_axisrv) > global.joy_stick_threshold or
     gamepad_axis_value(joySlot,gp_axisrv) < -global.joy_stick_threshold {
         angle = pointdir;
+}
+
+//Aim Angle - Chequea si el jugador está moviendo el stick derecho y guarda la dirección en angle
+pointdir2 = point_direction(
+    0,
+    0,
+    gamepad_axis_value(joySlot,gp_axislh),
+    gamepad_axis_value(joySlot,gp_axislv));
+    
+    if  gamepad_axis_value(joySlot,gp_axislh) > global.joy_stick_threshold or 
+    gamepad_axis_value(joySlot,gp_axislh) < -global.joy_stick_threshold or
+    gamepad_axis_value(joySlot,gp_axislv) > global.joy_stick_threshold or
+    gamepad_axis_value(joySlot,gp_axislv) < -global.joy_stick_threshold {
+        teleAngle = pointdir2;
 }

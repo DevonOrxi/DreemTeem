@@ -42,6 +42,13 @@ hitPosX = 0;
 hitPosY = 0;
 freeze = false;
 
+//Teleport
+teleX = 0;
+teleY = 0;
+teleCharge = 0;
+teleAngle = 0;
+pointdir2 = 0;
+
 //Getting Punched - Knockback
 knockback = false;
 knockForce = 5;

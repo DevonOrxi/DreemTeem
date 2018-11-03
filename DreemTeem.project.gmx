@@ -200,6 +200,7 @@
       <object>objects\hitBox1</object>
       <object>objects\portraitUI</object>
       <object>objects\livesUI</object>
+      <object>objects\teleport</object>
     </objects>
     <objects name="Managers">
       <object>objects\joyManager</object>

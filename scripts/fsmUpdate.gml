@@ -94,6 +94,21 @@ if x < -50 && alive = true {
     life -= 1;
 }
 
+//Teleport
+teleX = x + lengthdir_x(teleCharge, teleAngle);
+teleY = y + lengthdir_y(teleCharge, teleAngle);
+
+if joyL1
+{
+    teleCharge += 1;
+}
+
+if joyL1R
+{
+    warp_movement_entity(teleX, teleY);
+    teleCharge = 0;
+}
+
 //UI
 if playerId = 1 {
     global.chargeLevel1 = chargeLevel;
