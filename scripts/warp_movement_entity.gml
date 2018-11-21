@@ -7,21 +7,28 @@
 
 var xwarp = argument0; // x position to warp to
 var ywarp = argument1; // y position to warp to
+var xdif = xwarp - x;
+var ydif = ywarp - y;
 
-// Warp to the location but don't move inside collision objects
-if (place_meeting(xwarp, y, solids)) {
-    while(!place_meeting(sign(xwarp-x), y, solids)) {
-        x+=sign(xwarp-x);
+if (place_meeting(xwarp, ywarp, solids)) {
+    var ang = arctan(ydif / xdif);
+    var cosang = cos(ang);
+    var sinang = sin(ang);
+    var dist = distance_to_point(xwarp, ywarp);
+    var found = false;
+    
+    while(!found && dist >= 0) {
+        xdif -= cosang;
+        ydif += sinang;
+        dist--;
+        
+        if (!place_meeting(x + xdif, y + ydif, solids)) {
+            x += xdif;
+            y += ydif;
+            return 0;
+        }
     }
-    xwarp = x;
+} else {
+    x = xwarp;
+    y = ywarp;
 }
-x = xwarp;
-
-// Warp to the location but don't move inside collision objects
-if (place_meeting(x, ywarp, solids)) {
-    while(!place_meeting(x, sign(ywarp-y), solids)) {
-        y+=sign(ywarp-y);
-    }
-    ywarp = y;
-}
-y = ywarp;
