@@ -15,9 +15,9 @@ if (place_meeting(xwarp, ywarp, solids)) {
     var cosang = cos(ang);
     var sinang = sin(ang);
     var dist = distance_to_point(xwarp, ywarp);
-    var found = false;
+    var hasMidpoint = false;
     
-    while(!found && dist >= 0) {
+    while(!hasMidpoint && dist >= 0) {
         xdif -= cosang;
         ydif += sinang;
         dist--;
@@ -25,7 +25,7 @@ if (place_meeting(xwarp, ywarp, solids)) {
         if (!place_meeting(x + xdif, y + ydif, solids)) {
             x += xdif;
             y += ydif;
-            return 0;
+            hasMidpoint = true;
         }
     }
 } else {
